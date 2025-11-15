@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://kr83oms1jnke"]
+
+[ext_resource type="Script" uid="uid://eogvb7fpeh7v" path="res://scripts/moneyGetScript.gd" id="1_ehlfg"]
+
+[node name="Label" type="Label"]
+offset_left = 613.235
+offset_top = 415.0
+offset_right = 704.235
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 29
+text = "+ $500"
+script = ExtResource("1_ehlfg")
