@@ -58,7 +58,7 @@ position = Vector2(1065, 160)
 [node name="reduce_when_ring" type="Timer" parent="Telephone"]
 
 [node name="work_timer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Canvas/sanityBarUI/Timer" to="Canvas/sanityBarUI" method="_on_timer_timeout"]
