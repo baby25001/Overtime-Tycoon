@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://eq5dld084jvt"]
 
-[ext_resource type="Script" uid="uid://bpt1gf17heomq" path="res://scenes/upgrade_shop_scene_script.gd" id="1_f837f"]
+[ext_resource type="Script" uid="uid://bpt1gf17heomq" path="res://scripts/upgrade_shop_scene_script.gd" id="1_f837f"]
 [ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://icon.svg" id="2_ku53v"]
 
 [node name="Node2D" type="Node2D"]
