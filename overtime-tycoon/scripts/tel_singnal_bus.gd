@@ -4,6 +4,7 @@ signal call_started(timer: Timer)
 signal call_stopped(result: float)
 signal phone_ringing(confirm: bool, object: Node2D)
 signal decrease_sanity(pain: int)
+signal play_added_money(amount_added: int)
 
 var ring_in_X_chance: int = 4
 var ring_cycle: float = 3
@@ -31,8 +32,9 @@ func _ready() -> void:
 func calling(time:Timer):
 	call_started.emit(time)
 
-func call_stop():
-	call_stopped.emit(5)
+func call_stop(): 
+	call_stopped.emit(5) # add money
+	play_added_money.emit(5)
 
 func ringing(confirm):
 	if confirm:

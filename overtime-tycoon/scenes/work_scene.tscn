@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://4w3jdc6d616y"]
+[gd_scene load_steps=8 format=3 uid="uid://4w3jdc6d616y"]
 
+[ext_resource type="Script" uid="uid://do2qx6nm8dnum" path="res://scripts/work_scene_script.gd" id="1_clgo3"]
 [ext_resource type="Script" uid="uid://chb3wjdh8jfij" path="res://scripts/moneyCounterScript.gd" id="1_eoja1"]
 [ext_resource type="Texture2D" uid="uid://ccp3bykpnc34l" path="res://sprites/SanityBarUnder.png" id="1_jqjy7"]
 [ext_resource type="Texture2D" uid="uid://c7xhg66yxv0q7" path="res://sprites/sanityBar.png" id="2_i6sgx"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bq6r3vur078ww" path="res://scenes/Telephone.tscn" id="5_io2gt"]
 
 [node name="WorkScene" type="Node2D"]
+script = ExtResource("1_clgo3")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -63,4 +65,5 @@ position = Vector2(1065, 160)
 [connection signal="call_stopped" from="Telephone" to="Canvas/moneyCounterUI" method="addMoney"]
 [connection signal="decrease_sanity" from="Telephone" to="Canvas/sanityBarUI" method="decreaseSanity"]
 [connection signal="phone_ringing" from="Telephone" to="Canvas/sanityBarUI" method="new_affecting"]
+[connection signal="play_added_money" from="Telephone" to="." method="_on_telephone_play_added_money"]
 [connection signal="timeout" from="Telephone/reduce_when_ring" to="Telephone" method="_on_reduce_when_ring_timeout"]

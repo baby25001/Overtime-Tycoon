@@ -8,8 +8,6 @@ var affecting_list: Array[Node]
 func _ready() -> void:
 	timer.start()
 
-
-
 # note: sanity bar decreases downwards (100 top, 0 bottom)
 func decreaseSanity(amount: float):
 	value -= amount
