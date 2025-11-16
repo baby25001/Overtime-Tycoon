@@ -32,9 +32,11 @@ func _ready() -> void:
 func calling(time:Timer):
 	call_started.emit(time)
 
+# call finished
 func call_stop(): 
 	call_stopped.emit(5) # add money
 	play_added_money.emit(5)
+	GM.calls_done_per_scene += 1
 
 func ringing(confirm):
 	if confirm:

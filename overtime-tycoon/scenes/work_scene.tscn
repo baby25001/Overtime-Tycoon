@@ -57,6 +57,10 @@ position = Vector2(1065, 160)
 
 [node name="reduce_when_ring" type="Timer" parent="Telephone"]
 
+[node name="work_timer" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
 [connection signal="timeout" from="Canvas/sanityBarUI/Timer" to="Canvas/sanityBarUI" method="_on_timer_timeout"]
 [connection signal="on_call" from="Canvas/call_timer" to="Canvas/sanityBarUI" method="new_affecting"]
 [connection signal="reduce_sanity" from="Canvas/call_timer" to="Canvas/sanityBarUI" method="decreaseSanity"]
@@ -67,3 +71,4 @@ position = Vector2(1065, 160)
 [connection signal="phone_ringing" from="Telephone" to="Canvas/sanityBarUI" method="new_affecting"]
 [connection signal="play_added_money" from="Telephone" to="." method="_on_telephone_play_added_money"]
 [connection signal="timeout" from="Telephone/reduce_when_ring" to="Telephone" method="_on_reduce_when_ring_timeout"]
+[connection signal="timeout" from="work_timer" to="." method="_on_work_timer_timeout"]

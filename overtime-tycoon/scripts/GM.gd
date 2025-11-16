@@ -6,3 +6,5 @@ extends Node
 var curMoney = 0
 var curSanity = 100
 var maxSanity = 100
+var calls_done_per_scene = 0
+var money_gained_per_scene = 0

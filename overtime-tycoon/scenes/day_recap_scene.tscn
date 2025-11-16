@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu2n5sxech1cd"]
+
+[ext_resource type="Script" uid="uid://ccw74yakvva7u" path="res://scripts/data_day_recap.gd" id="1_nodxj"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nodxj")
+
+[node name="Main" type="Node2D" parent="."]
+position = Vector2(300, 227)
+
+[node name="label_money_gained" type="Label" parent="Main"]
+offset_right = 188.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 25
+text = "Money Gained: "
+
+[node name="label_total_money" type="Label" parent="Main"]
+offset_top = 45.0
+offset_right = 163.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 25
+text = "Total Money: "
+
+[node name="label_week_goal" type="Label" parent="Main"]
+offset_top = 90.0
+offset_right = 231.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 25
+text = "Week Money Goal: "
+
+[node name="Task" type="Node2D" parent="."]
+position = Vector2(300, 418)
+
+[node name="label_task_done" type="Label" parent="Task"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
+text = "Tasks Done:"
+
+[node name="label_calls_done" type="Label" parent="Task"]
+offset_top = 42.0
+offset_right = 133.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 25
+text = "Calls Done: "
