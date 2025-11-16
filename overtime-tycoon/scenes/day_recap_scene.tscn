@@ -56,10 +56,9 @@ offset_top = 574.0
 offset_right = 1817.0
 offset_bottom = 697.0
 scale = Vector2(0.5, 0.5)
+step = 0.1
 texture_under = ExtResource("3_6iauo")
 texture_progress = ExtResource("4_7hibx")
 script = ExtResource("5_ab611")
-
-[node name="Timer" type="Timer" parent="CanvasLayer/weekly_target_bar"]
 
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer" method="_on_texture_button_pressed"]
