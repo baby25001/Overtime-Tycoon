@@ -9,3 +9,28 @@ var maxSanity = 100
 var calls_done_per_scene = 0
 var money_gained_per_scene = 0
 var weekly_target = 50
+
+var pajangan = [
+	{
+		"id": "#000",
+		"price": 10,
+		"owned": false,
+		"posx": 700,
+		"posy": 150
+	},
+	{
+		"id": "#001",
+		"price": 30,
+		"owned": false,
+		"posx": 850,
+		"posy": 150
+		
+	},
+	{
+		"id": "#002",
+		"price": 50,
+		"owned": false,
+		"posx": 1000,
+		"posy": 150
+	}
+]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://icon.svg" id="2_4y1ax"]
 [ext_resource type="Texture2D" uid="uid://ccp3bykpnc34l" path="res://sprites/SanityBarUnder.png" id="3_6iauo"]
 [ext_resource type="Texture2D" uid="uid://c7xhg66yxv0q7" path="res://sprites/sanityBar.png" id="4_7hibx"]
-[ext_resource type="Script" uid="uid://d2u2p5w35yfk2" path="res://scenes/weekly_target_bar_script.gd" id="5_ab611"]
+[ext_resource type="Script" uid="uid://d2u2p5w35yfk2" path="res://scripts/weekly_target_bar_script.gd" id="5_ab611"]
 
 [node name="Node2D" type="Node2D"]
 
