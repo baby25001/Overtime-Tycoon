@@ -3,6 +3,7 @@ extends Node
 # note: script is autoload (singleton) meaning you can access it in any scene
 # how to access: GM.{variable_name}
 
+var day = 1
 var curMoney = 0		#total money right now
 var curSanity = 100
 var maxSanity = 100
