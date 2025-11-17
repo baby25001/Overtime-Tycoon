@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://m1kfxj82jcx8" path="res://sprites/work_scene/PC asset.png" id="3_8xdsi"]
 [ext_resource type="Script" uid="uid://blsgcxvh2pl53" path="res://scripts/sanityBar.gd" id="3_eoja1"]
 [ext_resource type="Texture2D" uid="uid://duyiac8lvhitu" path="res://sprites/work_scene/mouse and keyboard asset.png" id="4_y3pug"]
-[ext_resource type="Script" uid="uid://bf4ckjuh87st7" path="res://scripts/call_timer.gd" id="5_eoja1"]
+[ext_resource type="Script" path="res://scripts/call_timer.gd" id="5_eoja1"]
 [ext_resource type="PackedScene" uid="uid://bq6r3vur078ww" path="res://scenes/Telephone.tscn" id="5_io2gt"]
 [ext_resource type="Texture2D" uid="uid://32fbke6ky7ip" path="res://sprites/work_scene/corkboard notes asset.png" id="5_ni28n"]
-[ext_resource type="Script" uid="uid://cysj8q05h4did" path="res://scripts/target_bar_script.gd" id="7_7nxki"]
+[ext_resource type="Script" path="res://scripts/target_bar_script.gd" id="7_7nxki"]
 [ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://icon.svg" id="9_2pybm"]
 
 [node name="WorkScene" type="Node2D"]
@@ -46,15 +46,15 @@ texture = ExtResource("5_ni28n")
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="moneyIcon" type="Sprite2D" parent="Canvas"]
-position = Vector2(283.5, 241.125)
+position = Vector2(54, 41)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("2_ytnmq")
 
 [node name="moneyCounterUI" type="Label" parent="Canvas"]
-offset_left = 320.5
-offset_top = 224.125
-offset_right = 533.5
-offset_bottom = 258.125
+offset_left = 102.0
+offset_top = 26.0
+offset_right = 315.0
+offset_bottom = 60.0
 theme_override_font_sizes/font_size = 22
 text = ": $0"
 script = ExtResource("1_eoja1")
@@ -72,19 +72,6 @@ texture_progress = ExtResource("2_i6sgx")
 script = ExtResource("3_eoja1")
 
 [node name="Timer" type="Timer" parent="Canvas/sanityBarUI"]
-
-[node name="call_timer" type="TextureProgressBar" parent="Canvas"]
-offset_left = 150.0
-offset_top = 367.0
-offset_right = 1035.0
-offset_bottom = 395.0
-value = 100.0
-nine_patch_stretch = true
-texture_under = ExtResource("1_jqjy7")
-texture_progress = ExtResource("2_i6sgx")
-script = ExtResource("5_eoja1")
-
-[node name="sanity_reduction" type="Timer" parent="Canvas/call_timer"]
 
 [node name="label_target" type="Label" parent="Canvas"]
 offset_left = 807.0
@@ -134,18 +121,31 @@ position = Vector2(1065, 160)
 
 [node name="reduce_when_ring" type="Timer" parent="Telephone"]
 
+[node name="call_timer" type="TextureProgressBar" parent="Telephone"]
+offset_left = -915.0
+offset_top = 207.0
+offset_right = -30.0
+offset_bottom = 235.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_jqjy7")
+texture_progress = ExtResource("2_i6sgx")
+script = ExtResource("5_eoja1")
+
+[node name="sanity_reduction" type="Timer" parent="Telephone/call_timer"]
+
 [node name="work_timer" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
 
 [connection signal="timeout" from="Canvas/sanityBarUI/Timer" to="Canvas/sanityBarUI" method="_on_timer_timeout"]
-[connection signal="on_call" from="Canvas/call_timer" to="Canvas/sanityBarUI" method="new_affecting"]
-[connection signal="reduce_sanity" from="Canvas/call_timer" to="Canvas/sanityBarUI" method="decreaseSanity"]
-[connection signal="timeout" from="Canvas/call_timer/sanity_reduction" to="Canvas/call_timer" method="_on_sanity_reduction_timeout"]
-[connection signal="call_started" from="Telephone" to="Canvas/call_timer" method="_on_telephone_call_started"]
+[connection signal="call_started" from="Telephone" to="Telephone/call_timer" method="_on_telephone_call_started"]
 [connection signal="call_stopped" from="Telephone" to="Canvas/moneyCounterUI" method="addMoney"]
 [connection signal="decrease_sanity" from="Telephone" to="Canvas/sanityBarUI" method="decreaseSanity"]
 [connection signal="phone_ringing" from="Telephone" to="Canvas/sanityBarUI" method="new_affecting"]
 [connection signal="play_added_money" from="Telephone" to="." method="_on_telephone_play_added_money"]
 [connection signal="timeout" from="Telephone/reduce_when_ring" to="Telephone" method="_on_reduce_when_ring_timeout"]
+[connection signal="on_call" from="Telephone/call_timer" to="Canvas/sanityBarUI" method="new_affecting"]
+[connection signal="reduce_sanity" from="Telephone/call_timer" to="Canvas/sanityBarUI" method="decreaseSanity"]
+[connection signal="timeout" from="Telephone/call_timer/sanity_reduction" to="Telephone/call_timer" method="_on_sanity_reduction_timeout"]
 [connection signal="timeout" from="work_timer" to="." method="_on_work_timer_timeout"]
