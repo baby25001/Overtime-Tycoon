@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4llg3rjxideq"]
+[gd_scene load_steps=3 format=3 uid="uid://bapsv72tnc8gy"]
 
-[ext_resource type="Script" uid="uid://7cipb52lk0xu" path="res://scripts/pause_menu_in_game.gd" id="1_pox63"]
-[ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://icon.svg" id="2_efqxe"]
+[ext_resource type="Script" uid="uid://brocvanbtjts" path="res://scripts/pause_menu_upgrade_shop.gd" id="1_tpxu6"]
+[ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://icon.svg" id="2_jbki3"]
 
-[node name="PauseMenuInGame" type="Control"]
+[node name="PauseMenuUpgradeShop" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 offset_bottom = -261.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pox63")
+script = ExtResource("1_tpxu6")
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -22,13 +22,12 @@ color = Color(0.0253638, 0.0253638, 0.025363795, 0.3137255)
 
 [node name="Pause" type="Button" parent="."]
 process_mode = 3
-visible = false
 layout_mode = 0
 offset_left = 1144.0
 offset_top = -1.0
 offset_right = 1280.0
 offset_bottom = 135.0
-icon = ExtResource("2_efqxe")
+icon = ExtResource("2_jbki3")
 
 [node name="PauseMenuBox" type="VBoxContainer" parent="."]
 process_mode = 3

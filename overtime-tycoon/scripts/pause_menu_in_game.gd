@@ -19,42 +19,37 @@ func _on_main_menu_pressed() -> void:
 	GM.main_menu_count += 1
 	if GM.loop_count > 0:
 		GM.game_start_count = 1
-	print("10")
 	if ((GM.main_menu_count%2) == 1) and (GM.game_start_count == 0):
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame").visible = false
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame/Pause").visible = false	
 		get_node("/root/Game/WorkScene").visible = false
-		get_node("/root/Game/WorkScene/Canvas").visible = false
+		get_node("/root/Game/WorkScene/ProgressLayer").visible = false
 		get_node("/root/Game/StartScreen").visible = true
 		get_node("/root/Game/StartScreen/MainMenuBox").visible = true
 		get_tree().paused = true
-		print("0")
 	elif ((GM.main_menu_count%2) == 0) and (GM.game_start_count == 0):
-		print("2")
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame").visible = false
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame/Pause").visible = false
 		get_node("/root/Game/WorkScene").visible = false
-		get_node("/root/Game/WorkScene/Canvas").visible = false
+		get_node("/root/Game/WorkScene/ProgressLayer").visible = false
 		get_node("/root/Game/StartScreen").visible = true
 		get_node("/root/Game/StartScreen/MainMenuBox").visible = true
 		get_tree().paused = true
 	elif ((GM.main_menu_count%2) == 1) and (GM.game_start_count == 1):
-		print("1")
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame").visible = false
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame/Pause").visible = false
 		get_node("/root/Game/WorkScene").visible = false
-		get_node("/root/Game/WorkScene/Canvas").visible = false
-		GM.loop_count = 2
+		get_node("/root/Game/WorkScene/ProgressLayer").visible = false
 		get_tree().paused = true	 
+		GM.loop_count = 2
 		GM.emit_signal("ahhh")
 	elif ((GM.main_menu_count%2) == 0) and (GM.game_start_count == 1):
-		print("2")
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame").visible = false
 		get_node("/root/Game/WorkScene/PauseLayer/PauseMenuInGame/Pause").visible = false
 		get_node("/root/Game/WorkScene").visible = false
-		get_node("/root/Game/WorkScene/Canvas").visible = false
-		GM.loop_count = 2
+		get_node("/root/Game/WorkScene/ProgressLayer").visible = false
 		get_tree().paused = true	
+		GM.loop_count = 2
 		GM.emit_signal("ahhh")
 
 
