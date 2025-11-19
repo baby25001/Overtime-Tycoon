@@ -46,14 +46,14 @@ texture = ExtResource("5_ni28n")
 position = Vector2(457.00003, 371.00003)
 scale = Vector2(0.346, 0.346)
 
-[node name="Canvas" type="CanvasLayer" parent="."]
+[node name="ProgressLayer" type="CanvasLayer" parent="."]
 
-[node name="moneyIcon" type="Sprite2D" parent="Canvas"]
+[node name="moneyIcon" type="Sprite2D" parent="ProgressLayer"]
 position = Vector2(54, 41)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("2_ytnmq")
 
-[node name="moneyCounterUI" type="Label" parent="Canvas"]
+[node name="moneyCounterUI" type="Label" parent="ProgressLayer"]
 offset_left = 102.0
 offset_top = 26.0
 offset_right = 315.0
@@ -62,7 +62,7 @@ theme_override_font_sizes/font_size = 22
 text = ": $0"
 script = ExtResource("1_eoja1")
 
-[node name="sanityBarUI" type="TextureProgressBar" parent="Canvas"]
+[node name="sanityBarUI" type="TextureProgressBar" parent="ProgressLayer"]
 offset_left = 36.0
 offset_top = 178.0
 offset_right = 305.0
@@ -75,9 +75,9 @@ texture_over = ExtResource("9_rmouj")
 texture_progress = ExtResource("10_mff8n")
 script = ExtResource("3_eoja1")
 
-[node name="Timer" type="Timer" parent="Canvas/sanityBarUI"]
+[node name="Timer" type="Timer" parent="ProgressLayer/sanityBarUI"]
 
-[node name="label_target" type="Label" parent="Canvas"]
+[node name="label_target" type="Label" parent="ProgressLayer"]
 offset_left = 807.0
 offset_top = 230.0
 offset_right = 1045.0
@@ -86,7 +86,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
 text = "This week's target :("
 
-[node name="target_bar" type="TextureProgressBar" parent="Canvas"]
+[node name="target_bar" type="TextureProgressBar" parent="ProgressLayer"]
 offset_left = 811.0
 offset_top = 259.0
 offset_right = 2513.0
@@ -149,21 +149,21 @@ autostart = true
 layer = 2
 
 [node name="PauseMenuInGame" parent="PauseLayer" instance=ExtResource("15_y3pug")]
-offset_left = 924.0
-offset_bottom = -289.0
+offset_right = -703.0
+offset_bottom = -600.0
 
-[connection signal="decrease_sanity" from="PcStuff/Screen" to="Canvas/sanityBarUI" method="decreaseSanity"]
-[connection signal="gain_money" from="PcStuff/Screen" to="Canvas/moneyCounterUI" method="addMoney"]
+[connection signal="decrease_sanity" from="PcStuff/Screen" to="ProgressLayer/sanityBarUI" method="decreaseSanity"]
+[connection signal="gain_money" from="PcStuff/Screen" to="ProgressLayer/moneyCounterUI" method="addMoney"]
 [connection signal="money_notification" from="PcStuff/Screen" to="." method="play_added_money"]
-[connection signal="new_decreaser" from="PcStuff/Screen" to="Canvas/sanityBarUI" method="new_affecting"]
-[connection signal="timeout" from="Canvas/sanityBarUI/Timer" to="Canvas/sanityBarUI" method="_on_timer_timeout"]
+[connection signal="new_decreaser" from="PcStuff/Screen" to="ProgressLayer/sanityBarUI" method="new_affecting"]
+[connection signal="timeout" from="ProgressLayer/sanityBarUI/Timer" to="ProgressLayer/sanityBarUI" method="_on_timer_timeout"]
 [connection signal="call_notif" from="Telephone" to="." method="play_added_money"]
 [connection signal="call_started" from="Telephone" to="Telephone/call_timer" method="_on_telephone_call_started"]
-[connection signal="call_stopped" from="Telephone" to="Canvas/moneyCounterUI" method="addMoney"]
-[connection signal="decrease_sanity" from="Telephone" to="Canvas/sanityBarUI" method="decreaseSanity"]
-[connection signal="phone_ringing" from="Telephone" to="Canvas/sanityBarUI" method="new_affecting"]
+[connection signal="call_stopped" from="Telephone" to="ProgressLayer/moneyCounterUI" method="addMoney"]
+[connection signal="decrease_sanity" from="Telephone" to="ProgressLayer/sanityBarUI" method="decreaseSanity"]
+[connection signal="phone_ringing" from="Telephone" to="ProgressLayer/sanityBarUI" method="new_affecting"]
 [connection signal="timeout" from="Telephone/reduce_when_ring" to="Telephone" method="_on_reduce_when_ring_timeout"]
-[connection signal="on_call" from="Telephone/call_timer" to="Canvas/sanityBarUI" method="new_affecting"]
-[connection signal="reduce_sanity" from="Telephone/call_timer" to="Canvas/sanityBarUI" method="decreaseSanity"]
+[connection signal="on_call" from="Telephone/call_timer" to="ProgressLayer/sanityBarUI" method="new_affecting"]
+[connection signal="reduce_sanity" from="Telephone/call_timer" to="ProgressLayer/sanityBarUI" method="decreaseSanity"]
 [connection signal="timeout" from="Telephone/call_timer/sanity_reduction" to="Telephone/call_timer" method="_on_sanity_reduction_timeout"]
 [connection signal="timeout" from="work_timer" to="." method="_on_work_timer_timeout"]

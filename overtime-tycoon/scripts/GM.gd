@@ -36,7 +36,6 @@ var pajangan = [
 	}
 ]
 
-#pls ignore the names, I'll try to clear them up when I have time - Galinna
 var game_start_count = 0
 var main_menu_count = -1
 var loop_count = 0
