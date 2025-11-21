@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bapsv72tnc8gy"]
+
+[ext_resource type="Script" uid="uid://brocvanbtjts" path="res://scripts/pause_menu_upgrade_shop.gd" id="1_tpxu6"]
+[ext_resource type="Texture2D" uid="uid://luydshw2aopu" path="res://sprites/start_screen/quit menu button/when click.PNG" id="2_gxjqj"]
+[ext_resource type="Texture2D" uid="uid://bnddk27itqvoy" path="res://sprites/start_screen/quit menu button/idle.PNG" id="3_0b3ao"]
+[ext_resource type="Texture2D" uid="uid://dplt6wbt4pkxt" path="res://sprites/start_screen/resumepause button/when paused_clicked.PNG" id="4_jlxy8"]
+[ext_resource type="Texture2D" uid="uid://dic50dxdkcpoj" path="res://sprites/start_screen/resumepause button/idle.PNG" id="5_2sgaw"]
+
+[node name="PauseMenuUpgradeShop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -261.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpxu6")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0.7882353)
+
+[node name="QuitClicked" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 11.999999
+offset_top = 666.00006
+offset_right = 1012.0
+offset_bottom = 1666.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_gxjqj")
+
+[node name="Quit" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 12.0
+offset_top = 666.0
+offset_right = 1020.0
+offset_bottom = 1674.0
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("3_0b3ao")
+flat = true
+
+[node name="PauseClicked" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 11.999998
+offset_top = 615.0
+offset_right = 1012.0
+offset_bottom = 1615.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_jlxy8")
+
+[node name="Pause" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 12.000008
+offset_top = 614.0
+offset_right = 1020.0
+offset_bottom = 1622.0
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("5_2sgaw")
+flat = true
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

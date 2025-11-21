@@ -1,0 +1,175 @@
+[gd_scene load_steps=19 format=3 uid="uid://rval02q1w73n"]
+
+[ext_resource type="Script" uid="uid://b77yyc6ibit6m" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="Texture2D" uid="uid://dl7si87wprmmh" path="res://sprites/start_screen/9.png" id="2_2banv"]
+[ext_resource type="Texture2D" uid="uid://c4iyjy80etms5" path="res://sprites/start_screen/start_screen_sprite.png" id="2_o7i0r"]
+[ext_resource type="Texture2D" uid="uid://bc2erf2wu42dl" path="res://sprites/money 11 x 17 px.PNG" id="3_lt4el"]
+[ext_resource type="Texture2D" uid="uid://q3kmyyh88l0c" path="res://sprites/work_scene/table and corkboard asset.png" id="4_phykr"]
+[ext_resource type="Texture2D" uid="uid://b1r6erwnhpmqa" path="res://sprites/work_scene/sanity bar/bottom.png" id="5_q3i3u"]
+[ext_resource type="Texture2D" uid="uid://bcej5pylfuo8" path="res://sprites/work_scene/sanity bar/top.png" id="6_2banv"]
+[ext_resource type="Texture2D" uid="uid://b1b2q1nhc2kyl" path="res://sprites/work_scene/sanity bar/mid.png" id="7_ytx0m"]
+[ext_resource type="Texture2D" uid="uid://duyiac8lvhitu" path="res://sprites/work_scene/mouse and keyboard asset.png" id="8_a4px2"]
+[ext_resource type="Texture2D" uid="uid://32fbke6ky7ip" path="res://sprites/work_scene/corkboard notes asset.png" id="9_37qom"]
+[ext_resource type="PackedScene" uid="uid://d2bcts6ujb2hd" path="res://scenes/Screen.tscn" id="10_a7uje"]
+[ext_resource type="Script" uid="uid://chb3wjdh8jfij" path="res://scripts/moneyCounterScript.gd" id="12_2banv"]
+[ext_resource type="Texture2D" uid="uid://c7bc0pxbkqpn7" path="res://sprites/start_screen/start button/idle.png" id="12_8c457"]
+[ext_resource type="Texture2D" uid="uid://bi8jql20c688q" path="res://sprites/start_screen/start button/when click.png" id="12_q3i3u"]
+[ext_resource type="Texture2D" uid="uid://dic50dxdkcpoj" path="res://sprites/start_screen/resumepause button/idle.PNG" id="13_3opy0"]
+[ext_resource type="Texture2D" uid="uid://dplt6wbt4pkxt" path="res://sprites/start_screen/resumepause button/when paused_clicked.PNG" id="14_2banv"]
+[ext_resource type="Texture2D" uid="uid://bnddk27itqvoy" path="res://sprites/start_screen/quit menu button/idle.PNG" id="14_53rsf"]
+[ext_resource type="Texture2D" uid="uid://luydshw2aopu" path="res://sprites/start_screen/quit menu button/when click.PNG" id="16_ytx0m"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tx5wa")
+
+[node name="Background" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="clock" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 78.0
+offset_right = 192.0
+offset_bottom = 243.0
+texture = ExtResource("2_2banv")
+expand_mode = 1
+
+[node name="moneyIcon" type="Sprite2D" parent="Background"]
+position = Vector2(54, 41)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("3_lt4el")
+
+[node name="tableandcork" type="Sprite2D" parent="Background"]
+position = Vector2(642, 475.00003)
+scale = Vector2(0.865, 0.865)
+texture = ExtResource("4_phykr")
+
+[node name="sanityBarUI" type="TextureProgressBar" parent="Background"]
+layout_mode = 0
+offset_left = 67.00001
+offset_top = 262.00003
+offset_right = 336.0
+offset_bottom = 1262.0
+scale = Vector2(0.31, 0.31)
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("5_q3i3u")
+texture_over = ExtResource("6_2banv")
+texture_progress = ExtResource("7_ytx0m")
+
+[node name="mousekeyboard" type="Sprite2D" parent="Background"]
+position = Vector2(468.5, 588.00006)
+scale = Vector2(0.29133335, 0.24)
+texture = ExtResource("8_a4px2")
+
+[node name="notes" type="Sprite2D" parent="Background"]
+position = Vector2(872.99994, 318)
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("9_37qom")
+
+[node name="Screen" parent="Background" instance=ExtResource("10_a7uje")]
+position = Vector2(472.99997, 371.00003)
+scale = Vector2(0.4026667, 0.346)
+script = null
+
+[node name="white" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0.7882353)
+
+[node name="sprite" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 80.0
+offset_right = 1034.0
+offset_bottom = 560.0
+texture = ExtResource("2_o7i0r")
+expand_mode = 1
+
+[node name="moneyCounterUI" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 26.0
+offset_right = 315.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 22
+text = ": $0"
+script = ExtResource("12_2banv")
+
+[node name="MainMenuBox" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NewGameClicked" type="TextureRect" parent="MainMenuBox"]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 508.0001
+offset_right = 1706.0
+offset_bottom = 825.0001
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("12_q3i3u")
+
+[node name="NewGame" type="Button" parent="MainMenuBox"]
+process_mode = 3
+layout_mode = 0
+offset_left = 705.0
+offset_top = 507.0
+offset_right = 1713.0
+offset_bottom = 832.0
+scale = Vector2(0.24, 0.24)
+icon = ExtResource("12_8c457")
+flat = true
+
+[node name="ContinueClicked" type="TextureRect" parent="MainMenuBox"]
+layout_mode = 0
+offset_left = 11.999998
+offset_top = 615.0
+offset_right = 1012.0
+offset_bottom = 1615.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("14_2banv")
+
+[node name="Continue" type="Button" parent="MainMenuBox"]
+process_mode = 3
+layout_mode = 0
+offset_left = 12.000008
+offset_top = 614.0
+offset_right = 1020.0
+offset_bottom = 1622.0
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("13_3opy0")
+flat = true
+
+[node name="QuitClicked" type="TextureRect" parent="MainMenuBox"]
+layout_mode = 0
+offset_left = 11.999999
+offset_top = 666.00006
+offset_right = 1012.0
+offset_bottom = 1666.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("16_ytx0m")
+
+[node name="Quit" type="Button" parent="MainMenuBox"]
+process_mode = 3
+layout_mode = 0
+offset_left = 12.0
+offset_top = 666.0
+offset_right = 1020.0
+offset_bottom = 1674.0
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("14_53rsf")
+flat = true
+
+[connection signal="pressed" from="MainMenuBox/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MainMenuBox/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MainMenuBox/Quit" to="." method="_on_quit_pressed"]
