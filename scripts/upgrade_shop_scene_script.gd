@@ -1,5 +1,12 @@
 extends CanvasLayer
 
+func _ready() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "offset:x", 0, 1).set_trans(Tween.TRANS_SINE)
+
+
+# function for DECORS
+
 @onready var dimmer = $back_dimmer
 @onready var inspector = $inspector_panel
 @onready var buy_button = $inspector_panel/buy_button
@@ -9,11 +16,6 @@ extends CanvasLayer
 signal tween_dimmer_fade_in
 signal tween_dimmer_fade_out
 signal give_to_buy_button(price: int, id: String)
-
-func _ready() -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "offset:x", 0, 1).set_trans(Tween.TRANS_SINE)
-
 
 func open_inspector(title:String, desc:String, price:int, id:String):
 	tween_dimmer_fade_in.emit()
@@ -49,6 +51,67 @@ func _on_tween_dimmer_fade_out() -> void:
 	dimmer.visible = false
 	
 	
+# fucntion for TASKS
+	
+@onready var dimmer_task = $back_dimmer_task
+@onready var inspector_task = $inspector_panel_task
+@onready var unlock_button = $inspector_panel_task/unlock_button
+@onready var upgrade_button = $inspector_panel_task/upgrade_button
+@onready var task_icon = $inspector_panel_task/icon
+@onready var task_price = $inspector_panel_task/price
+
+signal tween_dimmer_task_fade_in
+signal tween_dimmer_task_fade_out
+signal give_to_unlock_button_task(price: int, id: int)
+signal give_to_upgrade_button_task(price: int, id: int)
+
+func open_inspector_task(title:String, desc:String, id:int, status:int):
+	var current_price = 0
+	if status==-1:	#if haven't unlocked
+		upgrade_button.disabled = true
+		upgrade_button.visible = false
+		unlock_button.disabled = false
+		unlock_button.visible = true
+		current_price = GM.tasks[id]["unlock_cost"]
+		give_to_unlock_button_task.emit(current_price, id)
+	else:	#if unlocked
+		upgrade_button.disabled = false
+		upgrade_button.visible = true
+		unlock_button.disabled = true
+		unlock_button.visible = false
+		current_price = GM.tasks[id]["upgrade_cost"][status]
+		give_to_upgrade_button_task.emit(current_price, id)
+	dimmer_task.visible = true
+	tween_dimmer_task_fade_in.emit()
+	task_icon.texture = load(GM.tasks[id]["icon"])
+	$inspector_panel_task/title.text = title
+	$inspector_panel_task/description.text = desc
+	
+	task_price.text += str(current_price)
+	#show dimmer 
+	var tween = get_tree().create_tween()
+	tween.tween_property(inspector_task, "position:x", 880, 0.3).set_trans(Tween.TRANS_SINE)
+	
+	
+
+func _on_tween_dimmer_task_fade_in() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(dimmer_task, "color:a", 0.5, 0.3).set_trans(Tween.TRANS_SINE)
+
+# when clicked outside inspector 
+func _on_back_dimmer_task_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		close_inspector_task()
+		
+func close_inspector_task():
+	tween_dimmer_task_fade_out.emit()
+	var tween = get_tree().create_tween()
+	tween.tween_property(inspector_task, "position:x", 1280, 0.3)
+
+func _on_tween_dimmer_task_fade_out() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(dimmer_task, "color:a", 0, 0.3).set_trans(Tween.TRANS_SINE)
+	dimmer_task.visible = false
 	
 
 func _on_texture_button_pressed() -> void:
@@ -67,3 +130,5 @@ func _on_texture_button_pressed() -> void:
 			get_tree().change_scene_to_file("res://scenes/game.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+	

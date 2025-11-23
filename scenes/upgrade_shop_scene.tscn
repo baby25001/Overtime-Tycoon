@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://eq5dld084jvt"]
+[gd_scene load_steps=13 format=3 uid="uid://eq5dld084jvt"]
 
 [ext_resource type="Script" uid="uid://bpt1gf17heomq" path="res://scripts/upgrade_shop_scene_script.gd" id="1_f837f"]
 [ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://sprites/icon.svg" id="2_ku53v"]
 [ext_resource type="Script" uid="uid://c5lgy61jkkqvh" path="res://scripts/shop/decor_script.gd" id="5_1ry7c"]
+[ext_resource type="Script" uid="uid://0lj4qfwpiuyp" path="res://scripts/shop/task_script.gd" id="5_60wi4"]
 [ext_resource type="Texture2D" uid="uid://hk018njsx4fl" path="res://sprites/happy madeline celeste.jpg" id="5_tw4x0"]
 [ext_resource type="Texture2D" uid="uid://bc2erf2wu42dl" path="res://sprites/money 11 x 17 px.PNG" id="6_1ry7c"]
 [ext_resource type="FontFile" uid="uid://b3gn4x32bw7yy" path="res://font/Ot2-Regular.ttf" id="6_3exvu"]
 [ext_resource type="Script" uid="uid://djr4a7h2oh0ck" path="res://scripts/shop/money_total.gd" id="7_qag1b"]
 [ext_resource type="Script" uid="uid://bfsct3h3ueaca" path="res://scripts/shop/buy_button_script.gd" id="7_tw4x0"]
 [ext_resource type="PackedScene" uid="uid://bapsv72tnc8gy" path="res://scenes/pause_menu_upgrade_shop.tscn" id="8_3exvu"]
+[ext_resource type="Script" uid="uid://b2yw8phkao5qh" path="res://scripts/shop/upgrade_button_script.gd" id="10_luokl"]
+[ext_resource type="Script" uid="uid://eygcctny7kgb" path="res://scripts/shop/unlock_button_script.gd" id="11_c8xxe"]
 
 [node name="UpgradeShop" type="Node2D"]
 
@@ -21,14 +24,6 @@ offset_top = 512.0
 offset_right = 1183.0
 offset_bottom = 640.0
 texture_normal = ExtResource("2_ku53v")
-
-[node name="Label" type="Label" parent="UILayer"]
-offset_left = 57.0
-offset_top = 23.0
-offset_right = 149.0
-offset_bottom = 78.0
-theme_override_font_sizes/font_size = 40
-text = "Ebay"
 
 [node name="new_task" type="Label" parent="UILayer"]
 offset_left = 70.0
@@ -59,6 +54,33 @@ offset_bottom = 80.0
 theme_override_font_sizes/font_size = 30
 text = ": "
 script = ExtResource("7_qag1b")
+
+[node name="tasks" type="GridContainer" parent="UILayer"]
+offset_left = 93.0
+offset_top = 212.0
+offset_right = 1046.0
+offset_bottom = 340.0
+
+[node name="slot0" type="Control" parent="UILayer/tasks"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="000_phone_calls" type="TextureButton" parent="UILayer/tasks/slot0"]
+modulate = Color(0.7647059, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_ku53v")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_60wi4")
+task_name = "Phone Calls"
+task_description = "hey! are you having a bad day? well how about now, when someone whom you've never met in your entire life tells you that you are a worthless human being?"
 
 [node name="decor" type="GridContainer" parent="UILayer"]
 offset_left = 93.0
@@ -138,6 +160,12 @@ offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 0)
 
+[node name="back_dimmer_task" type="ColorRect" parent="UILayer"]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0)
+
 [node name="inspector_panel" type="Panel" parent="UILayer"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -204,11 +232,6 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_ku53v")
 script = ExtResource("7_tw4x0")
 
-[node name="back_button" type="TextureButton" parent="UILayer/inspector_panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="icon" type="TextureRect" parent="UILayer/inspector_panel"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
@@ -224,6 +247,81 @@ texture = ExtResource("2_ku53v")
 expand_mode = 2
 stretch_mode = 5
 
+[node name="inspector_panel_task" type="Panel" parent="UILayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 400.0
+offset_bottom = 720.0
+grow_horizontal = 0
+
+[node name="icon" type="TextureRect" parent="UILayer/inspector_panel_task"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 140.0
+offset_right = 100.0
+offset_bottom = 340.0
+grow_horizontal = 2
+texture = ExtResource("2_ku53v")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="title" type="Label" parent="UILayer/inspector_panel_task"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 29.0
+offset_right = 370.0
+offset_bottom = 139.0
+theme_override_fonts/font = ExtResource("6_3exvu")
+theme_override_font_sizes/font_size = 50
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="RichTextLabel" parent="UILayer/inspector_panel_task"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 375.0
+offset_right = 375.0
+offset_bottom = 562.0
+theme_override_fonts/normal_font = ExtResource("6_3exvu")
+theme_override_font_sizes/normal_font_size = 30
+text = "Description"
+
+[node name="upgrade_button" type="TextureButton" parent="UILayer/inspector_panel_task"]
+layout_mode = 0
+offset_left = 244.99997
+offset_top = 601.0
+offset_right = 373.0
+offset_bottom = 729.0
+scale = Vector2(0.735, 0.735)
+texture_normal = ExtResource("2_ku53v")
+script = ExtResource("10_luokl")
+
+[node name="unlock_button" type="TextureButton" parent="UILayer/inspector_panel_task"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 601.0
+offset_right = 373.00003
+offset_bottom = 729.0
+scale = Vector2(0.735, 0.735)
+texture_normal = ExtResource("2_ku53v")
+script = ExtResource("11_c8xxe")
+
+[node name="price" type="Label" parent="UILayer/inspector_panel_task"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 633.0
+offset_right = 121.0
+offset_bottom = 688.0
+theme_override_fonts/font = ExtResource("6_3exvu")
+theme_override_font_sizes/font_size = 30
+text = "$ "
+
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -234,9 +332,16 @@ anchor_bottom = 0.41666666
 metadata/_edit_use_anchors_ = true
 
 [connection signal="give_to_buy_button" from="UILayer" to="UILayer/inspector_panel/buy_button" method="_on_ui_layer_give_to_buy_button"]
+[connection signal="give_to_unlock_button_task" from="UILayer" to="UILayer/inspector_panel_task/unlock_button" method="_on_ui_layer_give_to_unlock_button_task"]
+[connection signal="give_to_upgrade_button_task" from="UILayer" to="UILayer/inspector_panel_task/upgrade_button" method="_on_ui_layer_give_to_upgrade_button_task"]
 [connection signal="tween_dimmer_fade_in" from="UILayer" to="UILayer" method="_on_tween_dimmer_fade_in"]
 [connection signal="tween_dimmer_fade_out" from="UILayer" to="UILayer" method="_on_tween_dimmer_fade_out"]
+[connection signal="tween_dimmer_task_fade_in" from="UILayer" to="UILayer" method="_on_tween_dimmer_task_fade_in"]
+[connection signal="tween_dimmer_task_fade_out" from="UILayer" to="UILayer" method="_on_tween_dimmer_task_fade_out"]
 [connection signal="pressed" from="UILayer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="UILayer/TextureButton" to="UILayer" method="_on_texture_button_pressed"]
 [connection signal="gui_input" from="UILayer/back_dimmer" to="UILayer" method="_on_back_dimmer_gui_input"]
+[connection signal="gui_input" from="UILayer/back_dimmer_task" to="UILayer" method="_on_back_dimmer_task_gui_input"]
 [connection signal="pressed" from="UILayer/inspector_panel/buy_button" to="UILayer/inspector_panel/buy_button" method="_on_pressed"]
+[connection signal="pressed" from="UILayer/inspector_panel_task/upgrade_button" to="UILayer/inspector_panel_task/upgrade_button" method="_on_pressed"]
+[connection signal="pressed" from="UILayer/inspector_panel_task/unlock_button" to="UILayer/inspector_panel_task/unlock_button" method="_on_pressed"]

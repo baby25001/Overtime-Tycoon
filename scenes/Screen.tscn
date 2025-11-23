@@ -252,6 +252,7 @@ texture = ExtResource("1_t46dj")
 script = ExtResource("2_8m26t")
 
 [node name="Spreadsheet opener" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-470.116, -330.817)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_sad84")
@@ -321,7 +322,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_xhy5k")
 }
 
-[connection signal="disable" from="." to="close screen" method="turn_off"]
 [connection signal="closing_sheet" from="Spreadsheet opener" to="Spreadsheet opener/Spreadsheet" method="_on_spreadsheet_opener_closing_sheet"]
 [connection signal="opening_sheet" from="Spreadsheet opener" to="Spreadsheet opener/Spreadsheet" method="_on_spreadsheet_opener_opening_sheet"]
 [connection signal="button_down" from="Spreadsheet opener/Button" to="Spreadsheet opener" method="_on_button_button_down"]

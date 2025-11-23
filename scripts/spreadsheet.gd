@@ -20,7 +20,7 @@ func _on_button_button_down() -> void:
 	spreadsheet_completion += 5
 	if spreadsheet_completion >= 100:
 		spreadsheet_completion = 0
-		finished.emit(7, global_position)
+		finished.emit(GM.add_money_spreadsheet, global_position)
 	progress.value = spreadsheet_completion
 	penalty()
 

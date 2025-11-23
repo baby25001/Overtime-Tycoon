@@ -14,6 +14,7 @@ func _ready() -> void:
 	sanity_bar.mult_decrease = 1
 	sanity_bar.mult_increase = 1
 	
+	
 	# check for items are bought
 	for item in GM.pajangan:
 		if item["owned"] == true:

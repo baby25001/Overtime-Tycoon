@@ -11,6 +11,10 @@ var calls_done_per_scene = 0
 var money_gained_per_scene = 0
 var weekly_target = 50
 
+var add_money_telephone = 5
+var add_money_spreadsheet = 7
+var add_money_meeting = 20
+
 var pajangan = [
 	{
 		"id": "000",
@@ -32,6 +36,38 @@ var pajangan = [
 		"recover_bonus": 0.5,
 		"decrease_bonus": 0.5,
 		"icon" : "res://sprites/happy madeline celeste.jpg"
+	}
+]
+
+var tasks = [
+	{
+		"id" = "000",
+		"nama" = "telephone",
+		"icon" = "res://sprites/icon.svg",
+		"upgrade_value" = [7, 9, 12, 15],
+		"upgrade_cost" = [5, 10, 15, 20],
+		"owned" = true,
+		"index" = 0
+	},
+	{
+		"id" = "001",
+		"nama" = "spreadsheet",
+		"icon" = "res://sprites/icon.svg",
+		"upgrade_value" = [9, 12, 16, 21],
+		"upgrade_cost" = [7, 13, 19, 25],
+		"owned" = false,
+		"index" = -1,
+		"unlock_cost" = 15
+	},
+	{
+		"id" = "002",
+		"nama" = "meeting",
+		"icon" = "res://sprites/icon.svg",
+		"upgrade_value" = [25, 30, 35, 40],
+		"upgrade_cost" = [18, 22, 26, 30],
+		"owned" = false,
+		"index" = -1,
+		"unlock_cost" = 25
 	}
 ]
 
