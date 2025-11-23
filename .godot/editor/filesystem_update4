@@ -11,3 +11,7 @@ res://scenes/Screen.tscn
 res://scripts/screen_bus.gd
 res://scripts/spreadsheet_opener.gd
 res://scripts/work_scene_script.gd
+res://scenes/Telephone.tscn
+res://scripts/call_timer.gd
+res://scripts/pickup.gd
+res://scripts/ringer.gd
