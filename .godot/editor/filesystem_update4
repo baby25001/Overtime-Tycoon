@@ -13,3 +13,4 @@ res://scenes/slot_pack.tscn
 res://scenes/work_scene.tscn
 res://scripts/work_scene_script.gd
 res://scripts/moneyCounterScript.gd
+res://scenes/day_recap_scene.tscn

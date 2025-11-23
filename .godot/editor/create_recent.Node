@@ -1,11 +1,12 @@
+Node2D
+Control
+ColorRect
 TextureRect
 Label
-Control
 TextureButton
 Sprite2D
 RichTextLabel
 Button
 Panel
-ColorRect
 GridContainer
 CanvasLayer
