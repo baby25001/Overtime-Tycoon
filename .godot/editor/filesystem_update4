@@ -12,3 +12,4 @@ res://scripts/shop/slot.tscn
 res://scenes/slot_pack.tscn
 res://scenes/work_scene.tscn
 res://scripts/work_scene_script.gd
+res://scripts/moneyCounterScript.gd
