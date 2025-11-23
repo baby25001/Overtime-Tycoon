@@ -38,8 +38,6 @@ var printing : int = MONOLOGUE
 func _ready() -> void:
 	dialogue_library = read_JSON_data(path).get("DIALOGUE", [])
 	monologue_library = read_JSON_data(path).get("MONOLOGUE", [])
-	dialogue = dialogue_library["1"]
-	next()
 
 
 var count = 0
@@ -84,6 +82,7 @@ func finish():
 		sanity_timer.stop()
 		call_dialogue_finished.emit()
 
+var prev_dia = -1
 func _on_telephone_call_started() -> void:
 	if running and printing == DIALOGUE:
 		return
@@ -94,15 +93,18 @@ func _on_telephone_call_started() -> void:
 	sanity_timer.start()
 	affect_sanityBar.emit(true, self)
 	var num = rng.randi_range(1,dialogue_library.size())
+	if num == prev_dia : num = rng.randi_range(1,dialogue_library.size())
 	
 	dialogue = dialogue_library[str(num)]
 	next()
+	prev_dia = num
 
 
 func _on_sanity_reduction_timeout() -> void:
 	reduce_sanity.emit(3)
 
 
+var prev_mon:int = -1
 func _on_monologue_timer_timeout() -> void:
 	if running:
 		return
@@ -110,5 +112,8 @@ func _on_monologue_timer_timeout() -> void:
 	if rng.randi_range(0,5) == 0:
 		printing = MONOLOGUE
 		var num = rng.randi_range(1,monologue_library.size())
+		if num == prev_mon:
+			num = rng.randi_range(1,monologue_library.size())
 		dialogue = monologue_library[str(num)]
 		next()
+		prev_mon = num
