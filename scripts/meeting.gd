@@ -87,7 +87,7 @@ func _on_sanity_reduction_timeout() -> void:
 #if meeting duration is done, money will be given
 func _on_meeting_duration_timeout() -> void:
 	print("Meeting Finished")
-	finished.emit(20, global_position)
+	finished.emit(GM.add_money_meeting, global_position)
 	sanity_timer.stop()
 	count = 0
 	

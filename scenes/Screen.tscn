@@ -1,18 +1,18 @@
 [gd_scene load_steps=28 format=3 uid="uid://d2bcts6ujb2hd"]
 
-[ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://sprites/icon.svg" id="1_sad84"]
-[ext_resource type="Texture2D" uid="uid://m1kfxj82jcx8" path="res://sprites/work_scene/PC asset.png" id="1_t46dj"]
+[ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://sprites2/icon.svg" id="1_sad84"]
+[ext_resource type="Texture2D" uid="uid://m1kfxj82jcx8" path="res://sprites1/work_scene/PC asset.png" id="1_t46dj"]
 [ext_resource type="Script" uid="uid://cl44rjj5aq5lg" path="res://scripts/screen_bus.gd" id="2_8m26t"]
 [ext_resource type="Script" uid="uid://783jnncslmoh" path="res://scripts/spreadsheet_opener.gd" id="3_ckgjc"]
 [ext_resource type="Script" uid="uid://cycq1u2a0u8wq" path="res://scripts/spreadsheet.gd" id="4_ckgjc"]
-[ext_resource type="Texture2D" uid="uid://djiv66sh3m7p5" path="res://sprites/work_scene/screen/sp1.png" id="5_t46dj"]
-[ext_resource type="Texture2D" uid="uid://ccp3bykpnc34l" path="res://sprites/SanityBarUnder.png" id="6_k16cd"]
-[ext_resource type="Texture2D" uid="uid://c7xhg66yxv0q7" path="res://sprites/sanityBar.png" id="7_t46dj"]
+[ext_resource type="Texture2D" uid="uid://djiv66sh3m7p5" path="res://sprites1/work_scene/screen/sp1.png" id="5_t46dj"]
+[ext_resource type="Texture2D" uid="uid://ccp3bykpnc34l" path="res://sprites2/SanityBarUnder.png" id="6_k16cd"]
+[ext_resource type="Texture2D" uid="uid://c7xhg66yxv0q7" path="res://sprites2/sanityBar.png" id="7_t46dj"]
 [ext_resource type="Script" uid="uid://ob8vixmdwkrv" path="res://scripts/meeting_opener.gd" id="9_8prci"]
 [ext_resource type="Script" uid="uid://e67074ucma8i" path="res://scripts/close_computer.gd" id="9_dx45h"]
-[ext_resource type="Texture2D" uid="uid://cr4au0veoyg6x" path="res://sprites/work_scene/screen/zoom cam & mic off.png" id="10_8prci"]
+[ext_resource type="Texture2D" uid="uid://cr4au0veoyg6x" path="res://sprites1/work_scene/screen/zoom cam & mic off.png" id="10_8prci"]
 [ext_resource type="Script" uid="uid://cgioim5nd2863" path="res://scripts/meeting.gd" id="10_xhy5k"]
-[ext_resource type="Texture2D" uid="uid://bfiwvo0f1f3ch" path="res://sprites/work_scene/screen/zoom cam off & mic on.png" id="12_xhy5k"]
+[ext_resource type="Texture2D" uid="uid://bfiwvo0f1f3ch" path="res://sprites1/work_scene/screen/zoom cam off & mic on.png" id="12_xhy5k"]
 [ext_resource type="AudioStream" uid="uid://bjn8y720ykkbv" path="res://SFX/Telephone/ringtone.mp3" id="13_s1t8g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_phdvl"]
@@ -377,6 +377,7 @@ texture = ExtResource("1_t46dj")
 script = ExtResource("2_8m26t")
 
 [node name="Spreadsheet opener2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-470.116, -330.817)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_sad84")
@@ -427,6 +428,7 @@ libraries = {
 }
 
 [node name="Meeting opener" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-470.11597, -118.816956)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_sad84")
