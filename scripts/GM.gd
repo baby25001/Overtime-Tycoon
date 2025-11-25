@@ -4,7 +4,7 @@ extends Node
 # how to access: GM.{variable_name}
 
 var day = 1
-var curMoney = 0	#total money right now
+var curMoney = 0 #total money right now
 var curSanity = 100
 var maxSanity = 100
 var calls_done_per_scene = 0
@@ -21,21 +21,21 @@ var pajangan = [
 		"owned": false,
 		"recover_bonus": 0.1,
 		"decrease_bonus": 0.1,
-		"icon" : "res://sprites/happy madeline celeste.jpg"
+		"icon" : "res://sprites1/upgrade_shop/decor/mugmug.PNG"
 	},
 	{
 		"id": "001",
 		"owned": false,
-		"recover_bonus": 0.2,
-		"decrease_bonus": 0.2,
-		"icon" : "res://sprites/happy madeline celeste.jpg"
+		"recover_bonus": 0.15,
+		"decrease_bonus": 0.15,
+		"icon" : "res://sprites1/upgrade_shop/decor/plant.PNG"
 	},
 	{
 		"id": "002",
 		"owned": false,
-		"recover_bonus": 0.5,
-		"decrease_bonus": 0.5,
-		"icon" : "res://sprites/happy madeline celeste.jpg"
+		"recover_bonus": 0.2,
+		"decrease_bonus": 0.2,
+		"icon" : "res://sprites1/upgrade_shop/decor/yourmom.PNG"
 	}
 ]
 
@@ -85,6 +85,12 @@ var loop_count = 0
 var first_loop = 0
 var restart = 0
 
+@onready var window_size_x:=get_window().size.x
+@onready var window_size_y:=get_window().size.y
+
+func _process(_delta: float) -> void:
+	window_size_x = get_window().size.x
+	window_size_y = get_window().size.y
 
 signal reset()
 signal new()

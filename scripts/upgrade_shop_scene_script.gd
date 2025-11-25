@@ -1,9 +1,10 @@
 extends CanvasLayer
 
+
 func _ready() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "offset:x", 0, 1).set_trans(Tween.TRANS_SINE)
-
+	
 
 # function for DECORS
 
@@ -59,14 +60,17 @@ func _on_tween_dimmer_fade_out() -> void:
 @onready var upgrade_button = $inspector_panel_task/upgrade_button
 @onready var task_icon = $inspector_panel_task/icon
 @onready var task_price = $inspector_panel_task/price
+@onready var note_price = $inspector_panel_task/above_price
 
 signal tween_dimmer_task_fade_in
 signal tween_dimmer_task_fade_out
 signal give_to_unlock_button_task(price: int, id: int)
 signal give_to_upgrade_button_task(price: int, id: int)
+#signal change_buy_button_based_on_unlock_upgrade(status:int)
 
 func open_inspector_task(title:String, desc:String, id:int, status:int):
 	var current_price = 0
+	#change_buy_button_based_on_unlock_upgrade.emit(id)
 	if status==-1:	#if haven't unlocked
 		upgrade_button.disabled = true
 		upgrade_button.visible = false
@@ -74,6 +78,7 @@ func open_inspector_task(title:String, desc:String, id:int, status:int):
 		unlock_button.visible = true
 		current_price = GM.tasks[id]["unlock_cost"]
 		give_to_unlock_button_task.emit(current_price, id)
+		note_price.text = "Price to\nunlock:"
 	else:	#if unlocked
 		upgrade_button.disabled = false
 		upgrade_button.visible = true
@@ -81,13 +86,14 @@ func open_inspector_task(title:String, desc:String, id:int, status:int):
 		unlock_button.visible = false
 		current_price = GM.tasks[id]["upgrade_cost"][status]
 		give_to_upgrade_button_task.emit(current_price, id)
+		note_price.text = "Price to\nupgrade:"
 	dimmer_task.visible = true
 	tween_dimmer_task_fade_in.emit()
 	task_icon.texture = load(GM.tasks[id]["icon"])
 	$inspector_panel_task/title.text = title
 	$inspector_panel_task/description.text = desc
 	
-	task_price.text += str(current_price)
+	task_price.text = "$" + str(current_price)
 	#show dimmer 
 	var tween = get_tree().create_tween()
 	tween.tween_property(inspector_task, "position:x", 880, 0.3).set_trans(Tween.TRANS_SINE)
@@ -113,6 +119,7 @@ func _on_tween_dimmer_task_fade_out() -> void:
 	tween.tween_property(dimmer_task, "color:a", 0, 0.3).set_trans(Tween.TRANS_SINE)
 	dimmer_task.visible = false
 	
+	
 
 func _on_texture_button_pressed() -> void:
 	get_node("/root/UpgradeShop/PauseLayer").visible = false
@@ -132,3 +139,21 @@ func _on_texture_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 	
+
+
+func _on_unlock_button_change_to_upgrade(id: int, status: int) -> void:
+	upgrade_button.disabled = false
+	upgrade_button.visible = true
+	unlock_button.disabled = true
+	unlock_button.visible = false
+	var current_price = GM.tasks[id]["upgrade_cost"][status]
+	give_to_upgrade_button_task.emit(current_price, id)
+	note_price.text = "Price to\nupgrade:"
+	task_price.text = "$" + str(current_price)
+
+
+func _on_upgrade_button_is_max_upgrade(id: int) -> void:
+	var item_status = get_node("shop_tab/tasks/slot" + str(id) + "/item_status")
+	var item_button = get_node("shop_tab/tasks/slot" + str(id) + "/" + str(id))
+	item_button.disabled = true
+	item_status.texture = load("res://sprites1/upgrade_shop/out of stock (use on top of the product).png")

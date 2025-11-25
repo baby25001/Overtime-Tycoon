@@ -1,11 +1,3 @@
-res://dailogue test/dialogue.gd
-res://scenes/work_scene.tscn
-res://dailogue test/tester.json
-res://dailogue test/text_box.gd
-res://scripts/ringer.gd
-res://scripts/pickup.gd
-res://scripts/tel_singnal_bus.gd
-res://scenes/Telephone.tscn
-res://scripts/Telephone.gd
-res://dailogue test/textbox.tscn
-res://dailogue test/dialogue_generator.tscn
+res://scenes/upgrade_shop_scene.tscn
+res://scripts/shop/decor_script.gd
+res://scripts/shop/task_script.gd

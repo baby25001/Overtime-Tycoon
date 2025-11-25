@@ -3,4 +3,5 @@ extends Label
 
 
 func _process(_delta: float) -> void:
-	text = ": " + str(GM.curMoney)
+	var current_money = GM.curMoney
+	text = "$" + str(current_money)

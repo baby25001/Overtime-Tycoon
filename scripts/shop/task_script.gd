@@ -3,11 +3,28 @@ extends TextureButton
 
 @export var task_name: String
 @export var task_description: String
-var task_id
-var task_status
+@onready var UIlayer = get_node("/root/UpgradeShop/UILayer")
+@onready var task_id = int(str(name))
+@onready var task_status = GM.tasks[int(task_id)]["index"]
+@onready var item_status = get_parent().get_node("item_status")
+@onready var item_status_clicked = get_parent().get_node("item_status_clicked")
+@onready var timer = get_parent().get_node("Timer")
 
+func _ready() -> void:
+	if task_status == -1:	#locked
+		item_status.texture = load("res://sprites1/upgrade_shop/buy default.png")
+		item_status_clicked.texture = load("res://sprites1/upgrade_shop/buy when click.png")
+	elif task_status > -1 && task_status < 4: #upgrade
+		item_status.texture = load("res://sprites1/upgrade_shop/upgrade default.png")
+		item_status_clicked.texture = load("res://sprites1/upgrade_shop/upgrade when click.png")
+	else:	#max upgrade
+		item_status.texture = load("res://sprites1/upgrade_shop/upgrade when click.png")
+		disabled = true
 func _pressed() -> void:
-	task_id = str(name)
-	task_id = int(task_id[0]+task_id[1]+task_id[2])
-	task_status = GM.tasks[int(task_id)]["index"]
-	get_parent().get_parent().get_parent().open_inspector_task(task_name, task_description, task_id, task_status)
+	UIlayer.open_inspector_task(task_name, task_description, task_id, task_status)
+	item_status_clicked.visible = true
+	timer.start()
+	
+
+func _on_timer_timeout() -> void:
+		item_status_clicked.visible = false

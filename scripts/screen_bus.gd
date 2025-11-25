@@ -8,8 +8,11 @@ signal disable
 
 func _ready() -> void:
 	if(GM.tasks[1]["owned"]):
-		$"Spreadsheet opener".visible = true
-		
+		$"Spreadsheet opener2".visible = true
+	else: $"Spreadsheet opener2".visible = false
+	if(GM.tasks[2]["owned"]):
+		$"Meeting opener".visible = true
+	else: $"Meeting opener".visible = false
 
 func call_decrease_sanity(amount: float):
 	print("call_decrease_sanity ", amount)
