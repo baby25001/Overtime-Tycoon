@@ -10,6 +10,8 @@ var changing = false
 
 func _ready() -> void:
 	GM.calls_done_per_scene = 0
+	GM.spreadsheets_done_per_scene = 0
+	GM.meetings_done_per_scene = 0
 	GM.money_gained_per_scene = 0
 	sanity_bar.mult_decrease = 1
 	sanity_bar.mult_increase = 1

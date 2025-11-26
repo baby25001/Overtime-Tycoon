@@ -88,6 +88,7 @@ func _on_sanity_reduction_timeout() -> void:
 func _on_meeting_duration_timeout() -> void:
 	print("Meeting Finished")
 	finished.emit(GM.add_money_meeting, global_position)
+	GM.meetings_done_per_scene += 1
 	sanity_timer.stop()
 	count = 0
 	
