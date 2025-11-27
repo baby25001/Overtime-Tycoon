@@ -2,9 +2,6 @@ extends Label
 
 var clock = 0
 
-
-
-
 func _process(delta: float) -> void:
 	if clock<1.2:
 		clock+=delta

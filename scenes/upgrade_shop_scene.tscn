@@ -1,8 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://eq5dld084jvt"]
+[gd_scene load_steps=31 format=3 uid="uid://eq5dld084jvt"]
 
 [ext_resource type="Script" uid="uid://bpt1gf17heomq" path="res://scripts/upgrade_shop_scene_script.gd" id="1_f837f"]
 [ext_resource type="Texture2D" uid="uid://c84mf7j8xfsjh" path="res://sprites1/upgrade_shop/NEW shop tab new.png" id="2_bb24h"]
 [ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://sprites2/icon.svg" id="2_ku53v"]
+[ext_resource type="Texture2D" uid="uid://blup0oc2o11ip" path="res://sprites1/upgrade_shop/idle.png" id="3_lakpy"]
+[ext_resource type="Texture2D" uid="uid://cyxfg5h45l3nv" path="res://sprites1/upgrade_shop/when pressed.png" id="4_7tnew"]
 [ext_resource type="Script" uid="uid://c5lgy61jkkqvh" path="res://scripts/shop/decor_script.gd" id="5_1ry7c"]
 [ext_resource type="Script" uid="uid://0lj4qfwpiuyp" path="res://scripts/shop/task_script.gd" id="5_60wi4"]
 [ext_resource type="FontFile" uid="uid://gxkseqf68xa5" path="res://font/Ot6-Regular.ttf" id="5_ydsnx"]
@@ -10,18 +12,24 @@
 [ext_resource type="FontFile" uid="uid://b3gn4x32bw7yy" path="res://font/Ot2-Regular.ttf" id="6_3exvu"]
 [ext_resource type="Script" uid="uid://djr4a7h2oh0ck" path="res://scripts/shop/money_total.gd" id="7_qag1b"]
 [ext_resource type="Script" uid="uid://bfsct3h3ueaca" path="res://scripts/shop/buy_button_script.gd" id="7_tw4x0"]
+[ext_resource type="Texture2D" uid="uid://cbwcorj117shp" path="res://sprites1/upgrade_shop/phone.png" id="7_xs0fv"]
 [ext_resource type="PackedScene" uid="uid://bapsv72tnc8gy" path="res://scenes/pause_menu_upgrade_shop.tscn" id="8_3exvu"]
 [ext_resource type="Texture2D" uid="uid://e4tyahc6rghm" path="res://sprites1/upgrade_shop/upgrade default.png" id="8_fevue"]
 [ext_resource type="Texture2D" uid="uid://b0utiviwvays7" path="res://sprites1/upgrade_shop/decor/mugmug.PNG" id="8_owlww"]
 [ext_resource type="Texture2D" uid="uid://08guxaya14bf" path="res://sprites1/upgrade_shop/upgrade when click.png" id="9_owlww"]
 [ext_resource type="Script" uid="uid://b2yw8phkao5qh" path="res://scripts/shop/upgrade_button_script.gd" id="10_luokl"]
+[ext_resource type="Texture2D" uid="uid://bopagg4fl213r" path="res://sprites1/upgrade_shop/excell.png" id="11_58w4c"]
 [ext_resource type="Script" uid="uid://eygcctny7kgb" path="res://scripts/shop/unlock_button_script.gd" id="11_c8xxe"]
 [ext_resource type="Texture2D" uid="uid://1r35ss1h1kr" path="res://sprites1/upgrade_shop/buy default.png" id="11_fevue"]
 [ext_resource type="Texture2D" uid="uid://vpns23p02yc5" path="res://sprites1/upgrade_shop/decor/plant.PNG" id="12_ydsnx"]
 [ext_resource type="Texture2D" uid="uid://cvxjiwy1fwrjx" path="res://sprites1/upgrade_shop/decor/yourmom.PNG" id="13_owlww"]
 [ext_resource type="Texture2D" uid="uid://cutdb5llo6ijx" path="res://sprites1/upgrade_shop/buy now default.png" id="14_y6xq7"]
+[ext_resource type="Texture2D" uid="uid://dtfyos77py780" path="res://sprites1/upgrade_shop/webcam.png" id="15_5qur1"]
 [ext_resource type="Texture2D" uid="uid://dhterehxrqpwt" path="res://sprites1/upgrade_shop/buy now when click.png" id="15_pp4wy"]
+[ext_resource type="Texture2D" uid="uid://5cmr53hcjkhi" path="res://sprites1/upgrade_shop/996.png" id="16_3rw7c"]
 [ext_resource type="Texture2D" uid="uid://bwnonalhjn77c" path="res://sprites1/upgrade_shop/buy when click.png" id="18_ydsnx"]
+[ext_resource type="Texture2D" uid="uid://d1l8mxi4v681c" path="res://sprites1/upgrade_shop/decor/cactus decor no bg.PNG" id="20_5qur1"]
+[ext_resource type="Texture2D" uid="uid://bcyicbdbq736e" path="res://sprites1/upgrade_shop/decor/cat decor no bg.PNG" id="21_3rw7c"]
 
 [node name="UpgradeShop" type="Node2D"]
 
@@ -47,11 +55,14 @@ expand_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="UILayer/shop_tab"]
 layout_mode = 0
-offset_left = 971.25
-offset_top = 567.0
-offset_right = 1099.25
-offset_bottom = 695.0
-texture_normal = ExtResource("2_ku53v")
+offset_left = 918.25
+offset_top = 628.0
+offset_right = 1138.2499
+offset_bottom = 694.0
+texture_normal = ExtResource("3_lakpy")
+texture_pressed = ExtResource("4_7tnew")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="money_icon" type="TextureRect" parent="UILayer/shop_tab"]
 layout_mode = 0
@@ -76,33 +87,36 @@ script = ExtResource("7_qag1b")
 
 [node name="tasks" type="GridContainer" parent="UILayer/shop_tab"]
 layout_mode = 0
-offset_left = 364.25
-offset_top = 208.0
-offset_right = 1038.25
-offset_bottom = 336.0
+offset_left = 361.25
+offset_top = 214.0
+offset_right = 1059.1666
+offset_bottom = 474.0
+scale = Vector2(0.96, 0.96)
 theme_override_constants/h_separation = 50
-columns = 3
+columns = 4
 
 [node name="slot0" type="Control" parent="UILayer/shop_tab/tasks"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [node name="0" type="TextureButton" parent="UILayer/shop_tab/tasks/slot0"]
-modulate = Color(0.7647059, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 1.0
+offset_left = 23.0
+offset_top = 11.0
+offset_right = -22.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_ku53v")
+texture_normal = ExtResource("7_xs0fv")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_60wi4")
 task_name = "Phone Calls"
 task_description = "Hey! are you having a bad day? well how about now, when a total stranger  tells you that you are a worthless human being and you can't do anything right?"
+task_to_use = "how to use: Grab the phone and drag it to the top!"
 
 [node name="item_status" type="TextureRect" parent="UILayer/shop_tab/tasks/slot0"]
 layout_mode = 0
@@ -131,21 +145,23 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [node name="1" type="TextureButton" parent="UILayer/shop_tab/tasks/slot1"]
-modulate = Color(0.7647059, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 1.0
+offset_left = 22.0
+offset_top = 10.0
+offset_right = -19.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_ku53v")
+texture_normal = ExtResource("11_58w4c")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_60wi4")
 task_name = "Spread Sheet"
 task_description = "Spread sheet? more like spreading depression :DDD"
+task_to_use = "how to use: CLICK IT TILL YOU MAKE IT"
 
 [node name="item_status" type="TextureRect" parent="UILayer/shop_tab/tasks/slot1"]
 layout_mode = 0
@@ -174,21 +190,23 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
 [node name="2" type="TextureButton" parent="UILayer/shop_tab/tasks/slot2"]
-modulate = Color(0.7647059, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 1.0
+offset_left = 24.0
+offset_top = 11.0
+offset_right = -23.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_ku53v")
+texture_normal = ExtResource("15_5qur1")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_60wi4")
 task_name = "Meeting"
 task_description = "At least when you're in an online meeting, you don't have to smell your boss's stinky breath!"
+task_to_use = "how to use: When the audio cue comes in, HOLD the mic button until you finish the meeting"
 
 [node name="item_status" type="TextureRect" parent="UILayer/shop_tab/tasks/slot2"]
 layout_mode = 0
@@ -212,11 +230,55 @@ stretch_mode = 5
 [node name="Timer" type="Timer" parent="UILayer/shop_tab/tasks/slot2"]
 wait_time = 0.15
 
+[node name="slot3" type="Control" parent="UILayer/shop_tab/tasks"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="3" type="TextureButton" parent="UILayer/shop_tab/tasks/slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.958405
+offset_top = 7.2916694
+offset_right = -13.749847
+offset_bottom = -28.583328
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("16_3rw7c")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_60wi4")
+task_name = "996"
+task_description = "Be free and become a true corporate slave with working 996 (9am - 9pm, 6 days a week)"
+
+[node name="item_status" type="TextureRect" parent="UILayer/shop_tab/tasks/slot3"]
+layout_mode = 0
+offset_right = 129.46497
+offset_bottom = 129.46497
+mouse_filter = 2
+texture = ExtResource("11_fevue")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="item_status_clicked" type="TextureRect" parent="UILayer/shop_tab/tasks/slot3"]
+visible = false
+layout_mode = 0
+offset_right = 129.465
+offset_bottom = 129.465
+mouse_filter = 2
+texture = ExtResource("18_ydsnx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="UILayer/shop_tab/tasks/slot3"]
+wait_time = 0.15
+
 [node name="decor" type="GridContainer" parent="UILayer/shop_tab"]
 layout_mode = 0
-offset_left = 359.78503
+offset_left = 354.25
 offset_top = 495.0
-offset_right = 823.78503
+offset_right = 1014.25
 offset_bottom = 623.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -304,6 +366,72 @@ decor_description = "Do you feel like you don't have any motivation to do anythi
 decor_price = 50
 
 [node name="item_status" type="TextureRect" parent="UILayer/shop_tab/decor/slot002"]
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 106.0
+mouse_filter = 2
+texture = ExtResource("11_fevue")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot003" type="Control" parent="UILayer/shop_tab/decor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="003" type="TextureButton" parent="UILayer/shop_tab/decor/slot003"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.464844
+offset_top = 11.0
+offset_right = -6.0703125
+offset_bottom = -8.535156
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("20_5qur1")
+texture_disabled = ExtResource("20_5qur1")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_1ry7c")
+decor_name = "Cactus"
+decor_description = "Did you know, that cactus has a nicname \"Camel of the Plant World\", for its incredible survival skills? Maybe that will motivate you to keep on surviving in this hell-of-a-world!"
+decor_price = 80
+
+[node name="item_status" type="TextureRect" parent="UILayer/shop_tab/decor/slot003"]
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 106.0
+mouse_filter = 2
+texture = ExtResource("11_fevue")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot004" type="Control" parent="UILayer/shop_tab/decor"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="004" type="TextureButton" parent="UILayer/shop_tab/decor/slot004"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.464844
+offset_top = 4.0
+offset_right = -5.0703125
+offset_bottom = -12.535156
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("21_3rw7c")
+texture_disabled = ExtResource("21_3rw7c")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_1ry7c")
+decor_name = "A Cat Statue"
+decor_description = "Car."
+decor_price = 150
+
+[node name="item_status" type="TextureRect" parent="UILayer/shop_tab/decor/slot004"]
 layout_mode = 0
 offset_right = 106.0
 offset_bottom = 106.0
@@ -421,7 +549,7 @@ offset_bottom = 720.0
 grow_horizontal = 0
 
 [node name="icon" type="TextureRect" parent="UILayer/inspector_panel_task"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(175, 175)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -429,7 +557,7 @@ anchor_right = 0.5
 offset_left = -182.0
 offset_top = 140.0
 offset_right = 185.0
-offset_bottom = 340.0
+offset_bottom = 315.0
 grow_horizontal = 2
 texture = ExtResource("2_ku53v")
 expand_mode = 2
@@ -450,7 +578,7 @@ vertical_alignment = 1
 [node name="description" type="RichTextLabel" parent="UILayer/inspector_panel_task"]
 layout_mode = 0
 offset_left = 26.0
-offset_top = 375.0
+offset_top = 344.0
 offset_right = 375.0
 offset_bottom = 562.0
 theme_override_fonts/normal_font = ExtResource("6_3exvu")
@@ -525,14 +653,19 @@ metadata/_edit_use_anchors_ = true
 [connection signal="timeout" from="UILayer/shop_tab/tasks/slot0/Timer" to="UILayer/shop_tab/tasks/slot0/0" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/tasks/slot1/Timer" to="UILayer/shop_tab/tasks/slot1/1" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/tasks/slot2/Timer" to="UILayer/shop_tab/tasks/slot2/2" method="_on_timer_timeout"]
+[connection signal="timeout" from="UILayer/shop_tab/tasks/slot3/Timer" to="UILayer/shop_tab/tasks/slot3/3" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot000/000" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot001/001" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot002/002" method="_on_timer_timeout"]
+[connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot003/003" method="_on_timer_timeout"]
+[connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot004/004" method="_on_timer_timeout"]
 [connection signal="gui_input" from="UILayer/back_dimmer" to="UILayer" method="_on_back_dimmer_gui_input"]
 [connection signal="gui_input" from="UILayer/back_dimmer_task" to="UILayer" method="_on_back_dimmer_task_gui_input"]
 [connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot000/000" method="_on_buy_button_give_to_decor_button"]
 [connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot001/001" method="_on_buy_button_give_to_decor_button"]
 [connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot002/002" method="_on_buy_button_give_to_decor_button"]
+[connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot003/003" method="_on_buy_button_give_to_decor_button"]
+[connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot004/004" method="_on_buy_button_give_to_decor_button"]
 [connection signal="pressed" from="UILayer/inspector_panel/buy_button" to="UILayer/inspector_panel/buy_button" method="_on_pressed"]
 [connection signal="is_max_upgrade" from="UILayer/inspector_panel_task/upgrade_button" to="UILayer" method="_on_upgrade_button_is_max_upgrade"]
 [connection signal="pressed" from="UILayer/inspector_panel_task/upgrade_button" to="UILayer/inspector_panel_task/upgrade_button" method="_on_pressed"]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b57c4v1sif4nj"]
+[gd_scene load_steps=7 format=3 uid="uid://b57c4v1sif4nj"]
 
 [ext_resource type="Script" uid="uid://yktfnw0gpl1b" path="res://scripts/game_over_scene.gd" id="1_jy0sy"]
-[ext_resource type="Texture2D" uid="uid://bi8jql20c688q" path="res://sprites/start_screen/start button/when click.png" id="1_weh2h"]
-[ext_resource type="Texture2D" uid="uid://c7bc0pxbkqpn7" path="res://sprites/start_screen/start button/idle.png" id="2_jy0sy"]
-[ext_resource type="Texture2D" uid="uid://luydshw2aopu" path="res://sprites/start_screen/quit menu button/when click.PNG" id="3_5jg82"]
-[ext_resource type="Texture2D" uid="uid://bnddk27itqvoy" path="res://sprites/start_screen/quit menu button/idle.PNG" id="4_lt2b8"]
+[ext_resource type="Texture2D" uid="uid://bi8jql20c688q" path="res://sprites1/start_screen/start button/when click.png" id="1_weh2h"]
+[ext_resource type="Texture2D" uid="uid://c7bc0pxbkqpn7" path="res://sprites1/start_screen/start button/idle.png" id="2_jy0sy"]
+[ext_resource type="Texture2D" uid="uid://luydshw2aopu" path="res://sprites1/start_screen/quit menu button/when click.PNG" id="3_5jg82"]
+[ext_resource type="FontFile" uid="uid://gxkseqf68xa5" path="res://font/Ot6-Regular.ttf" id="4_5jg82"]
+[ext_resource type="Texture2D" uid="uid://bnddk27itqvoy" path="res://sprites1/start_screen/quit menu button/idle.PNG" id="4_lt2b8"]
+
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_jy0sy")
@@ -33,10 +35,13 @@ icon = ExtResource("2_jy0sy")
 flat = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 618.0
-offset_top = 434.0
-offset_right = 710.0
-offset_bottom = 468.0
+offset_left = 446.0
+offset_top = 332.0
+offset_right = 659.0
+offset_bottom = 401.0
+scale = Vector2(2.2, 2.2)
+theme_override_fonts/font = ExtResource("4_5jg82")
+theme_override_font_sizes/font_size = 50
 text = "Game Over"
 uppercase = true
 

@@ -8,14 +8,17 @@ var day_ended = false
 var all_tasks_ended = false
 var changing = false
 @onready var sanity_bar = get_node("ProgressLayer/sanityBarUI")
+@onready var date_in_calendar = $calendar/date
 
 func _ready() -> void:
+	GM.sanity_hits_zero_counter = 0
 	GM.calls_done_per_scene = 0
 	GM.spreadsheets_done_per_scene = 0
 	GM.meetings_done_per_scene = 0
 	GM.money_gained_per_scene = 0
 	sanity_bar.mult_decrease = 1
 	sanity_bar.mult_increase = 1
+	date_in_calendar.text = str(GM.day_count+1)
 	
 	
 	# check for items are bought
@@ -95,6 +98,7 @@ func _on_sanity_bar_ui_sanity_bar_zero() -> void:
 	# pass time for 1 hour, fill up the sanity bar by 50, any task that are currently running gets canceled
 	var audio = get_node("sanity zeroed")
 	play_audio(audio)
+	GM.sanity_hits_zero_counter += 1
 	
 	#pass time for 1 hour
 	var clock_sprite = get_node("ProgressLayer/Clock")

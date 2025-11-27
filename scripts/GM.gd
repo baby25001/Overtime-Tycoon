@@ -4,7 +4,7 @@ extends Node
 # how to access: GM.{variable_name}
 
 var day = 1
-var curMoney = 50 #total money right now
+var curMoney = 0 #total money right now
 var curSanity = 100
 var maxSanity = 100
 var calls_done_per_scene = 0
@@ -12,6 +12,7 @@ var spreadsheets_done_per_scene = 0
 var meetings_done_per_scene = 0
 var money_gained_per_scene = 0
 var weekly_target = 50
+var sanity_hits_zero_counter = 0
 
 var add_money_telephone = 5
 var add_money_spreadsheet = 7
@@ -38,6 +39,20 @@ var pajangan = [
 		"recover_bonus": 0.8,
 		"decrease_bonus": 0.1,
 		"icon" : "res://sprites1/upgrade_shop/decor/yourmom.PNG"
+	},
+	{
+		"id": "003",
+		"owned": false,
+		"recover_bonus": 1,
+		"decrease_bonus": 0.11,
+		"icon" : "res://sprites1/upgrade_shop/decor/cactus decor no bg.PNG"
+	},
+	{
+		"id": "004",
+		"owned": false,
+		"recover_bonus": 1.5,
+		"decrease_bonus": 0.15,
+		"icon" : "res://sprites1/upgrade_shop/decor/cat decor no bg.PNG"
 	}
 ]
 
@@ -45,7 +60,7 @@ var tasks = [
 	{
 		"id" = "000",
 		"nama" = "telephone",
-		"icon" = "res://sprites/icon.svg",
+		"icon" = "res://sprites1/upgrade_shop/phone.png",
 		"upgrade_value" = [7, 9, 12, 15],
 		"upgrade_cost" = [5, 10, 15, 20],
 		"owned" = true,
@@ -54,7 +69,7 @@ var tasks = [
 	{
 		"id" = "001",
 		"nama" = "spreadsheet",
-		"icon" = "res://sprites/icon.svg",
+		"icon" = "res://sprites1/upgrade_shop/excell.png",
 		"upgrade_value" = [9, 12, 16, 21],
 		"upgrade_cost" = [7, 13, 19, 25],
 		"owned" = true,
@@ -64,12 +79,22 @@ var tasks = [
 	{
 		"id" = "002",
 		"nama" = "meeting",
-		"icon" = "res://sprites/icon.svg",
+		"icon" = "res://sprites1/work_scene/webcam put on top of monitor.png",
 		"upgrade_value" = [25, 30, 35, 40],
 		"upgrade_cost" = [18, 22, 26, 30],
 		"owned" = true,
 		"index" = -1,
 		"unlock_cost" = 25
+	},
+	{
+		"id" = "003",
+		"nama" = "996",
+		"icon" = "res://sprites1/upgrade_shop/996.png",
+		"upgrade_value" = [],
+		"upgrade_cost" = [],
+		"owned" = false,
+		"index" = -1,
+		"unlock_cost" = 1000
 	}
 ]
 

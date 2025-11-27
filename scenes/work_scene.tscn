@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://4w3jdc6d616y"]
+[gd_scene load_steps=46 format=3 uid="uid://4w3jdc6d616y"]
 
 [ext_resource type="Script" uid="uid://do2qx6nm8dnum" path="res://scripts/work_scene_script.gd" id="1_clgo3"]
 [ext_resource type="Script" uid="uid://chb3wjdh8jfij" path="res://scripts/moneyCounterScript.gd" id="1_eoja1"]
@@ -18,8 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://d2bcts6ujb2hd" path="res://scenes/Screen.tscn" id="9_2pybm"]
 [ext_resource type="Texture2D" uid="uid://bcej5pylfuo8" path="res://sprites1/work_scene/sanity bar/top.png" id="9_rmouj"]
 [ext_resource type="Texture2D" uid="uid://b1b2q1nhc2kyl" path="res://sprites1/work_scene/sanity bar/mid.png" id="10_mff8n"]
+[ext_resource type="FontFile" uid="uid://gxkseqf68xa5" path="res://font/Ot6-Regular.ttf" id="14_rq3n8"]
 [ext_resource type="Texture2D" uid="uid://d3nocq11xdemp" path="res://sprites2/clock/9.png" id="15_go4cm"]
+[ext_resource type="Texture2D" uid="uid://bb2vhmwp1bk7m" path="res://sprites2/day_recap/3.PNG" id="15_j1ws0"]
 [ext_resource type="PackedScene" uid="uid://b4llg3rjxideq" path="res://scenes/pause_menu_in_game.tscn" id="15_y3pug"]
+[ext_resource type="Texture2D" uid="uid://dc73k7ejlm32k" path="res://sprites2/day_recap/2.PNG" id="16_g1u5m"]
 [ext_resource type="Texture2D" uid="uid://dowqb75pj6ats" path="res://sprites2/clock/10.png" id="16_w2tv4"]
 [ext_resource type="Texture2D" uid="uid://dp7siga4umx6q" path="res://sprites2/clock/11.png" id="17_s0bdn"]
 [ext_resource type="Texture2D" uid="uid://xaopfryphl4m" path="res://sprites2/clock/12.png" id="18_omevc"]
@@ -32,12 +35,14 @@
 [ext_resource type="Texture2D" uid="uid://bga1wnuoyufkp" path="res://sprites2/clock/7.png" id="25_rq3n8"]
 [ext_resource type="Texture2D" uid="uid://yri1g0l6vx8u" path="res://sprites2/clock/8.png" id="26_j1ws0"]
 [ext_resource type="Script" uid="uid://d03mm1vbye1" path="res://scripts/clock.gd" id="27_s0bdn"]
-[ext_resource type="AudioStream" uid="uid://bw5iqhco3pd7n" path="res://SFX/clock sounds/clock click 1.mp3" id="30_f30yx"]
 [ext_resource type="Texture2D" uid="uid://o4f8i0pkde6x" path="res://sprites1/work_scene/mugmug.PNG" id="30_yjw18"]
 [ext_resource type="Texture2D" uid="uid://bgch5myqibo0f" path="res://sprites1/work_scene/plant.PNG" id="31_3gmet"]
+[ext_resource type="Texture2D" uid="uid://gjm2cn002s73" path="res://sprites1/work_scene/calendar.png" id="31_j1ws0"]
 [ext_resource type="Script" uid="uid://bhxisiridlirf" path="res://scripts/work_timer.gd" id="31_omevc"]
 [ext_resource type="Texture2D" uid="uid://cr8he0pdr0yqh" path="res://sprites1/work_scene/yourmom.PNG" id="32_f30yx"]
+[ext_resource type="Texture2D" uid="uid://d1l8mxi4v681c" path="res://sprites1/upgrade_shop/decor/cactus decor no bg.PNG" id="35_tf5yx"]
 [ext_resource type="PackedScene" uid="uid://cqrg7y22i3s7q" path="res://dailogue test/dialogue_generator.tscn" id="35_tt0ds"]
+[ext_resource type="Texture2D" uid="uid://bcyicbdbq736e" path="res://sprites1/upgrade_shop/decor/cat decor no bg.PNG" id="36_0fa0m"]
 [ext_resource type="AudioStream" uid="uid://eshj14lh885o" path="res://SFX/fail sounds/Fail1.mp3" id="38_3gmet"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g1u5m"]
@@ -161,20 +166,23 @@ script = ExtResource("3_eoja1")
 [node name="label_target" type="Label" parent="ProgressLayer"]
 offset_left = 807.0
 offset_top = 230.0
-offset_right = 1045.0
+offset_right = 958.0
 offset_bottom = 265.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
-text = "This week's target :("
+theme_override_constants/line_spacing = -9
+theme_override_fonts/font = ExtResource("14_rq3n8")
+theme_override_font_sizes/font_size = 20
+text = "This week's 
+target :("
 
 [node name="target_bar" type="TextureProgressBar" parent="ProgressLayer"]
-offset_left = 811.0
-offset_top = 259.0
-offset_right = 2513.0
-offset_bottom = 382.0
-scale = Vector2(0.08, 0.08)
-texture_under = ExtResource("1_jqjy7")
-texture_progress = ExtResource("2_i6sgx")
+offset_left = 764.0
+offset_top = 159.0
+offset_right = 2466.0
+offset_bottom = 1159.0
+scale = Vector2(0.2, 0.2)
+texture_over = ExtResource("15_j1ws0")
+texture_progress = ExtResource("16_g1u5m")
 script = ExtResource("7_7nxki")
 
 [node name="Clock" type="AnimatedSprite2D" parent="ProgressLayer"]
@@ -182,10 +190,6 @@ position = Vector2(90, 163)
 scale = Vector2(0.13302928, 0.13302928)
 sprite_frames = SubResource("SpriteFrames_g1u5m")
 script = ExtResource("27_s0bdn")
-
-[node name="clock_tick" type="AudioStreamPlayer2D" parent="ProgressLayer/Clock"]
-stream = ExtResource("30_f30yx")
-volume_db = 3.741
 
 [node name="Pajangan" type="CanvasLayer" parent="."]
 
@@ -221,6 +225,24 @@ offset_bottom = 141.0
 texture = ExtResource("32_f30yx")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="003" type="TextureRect" parent="Pajangan"]
+visible = false
+offset_left = 547.0
+offset_top = 15.0
+offset_right = 658.0
+offset_bottom = 145.26248
+texture = ExtResource("35_tf5yx")
+expand_mode = 1
+
+[node name="004" type="TextureRect" parent="Pajangan"]
+visible = false
+offset_left = 402.0
+offset_top = 2.0
+offset_right = 540.0
+offset_bottom = 140.0
+texture = ExtResource("36_0fa0m")
+expand_mode = 1
 
 [node name="Telephone" parent="." instance=ExtResource("5_io2gt")]
 visibility_layer = 2
@@ -268,12 +290,31 @@ autostart = true
 [node name="sanity zeroed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("38_3gmet")
 
+[node name="calendar" type="TextureRect" parent="."]
+offset_left = 1107.0
+offset_top = 223.0
+offset_right = 1225.0
+offset_bottom = 341.0
+texture = ExtResource("31_j1ws0")
+expand_mode = 1
+
+[node name="date" type="Label" parent="calendar"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 47.0
+offset_right = 104.0
+offset_bottom = 99.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_rq3n8")
+theme_override_font_sizes/font_size = 55
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="disable_all_tasks" from="." to="PcStuff/Screen" method="disable_computer"]
 [connection signal="force_fail" from="." to="PcStuff/Screen" method="call_force_fail"]
 [connection signal="force_fail" from="." to="Dialogue" method="force_fail"]
 [connection signal="decrease_sanity" from="PcStuff/Screen" to="ProgressLayer/sanityBarUI" method="decreaseSanity"]
-[connection signal="force_fail" from="PcStuff/Screen" to="PcStuff/Screen/Spreadsheet opener/Spreadsheet" method="force_fail"]
-[connection signal="force_fail" from="PcStuff/Screen" to="PcStuff/Screen/Meeting opener/Meeting" method="force_fail"]
 [connection signal="gain_money" from="PcStuff/Screen" to="ProgressLayer/moneyCounterUI" method="addMoney"]
 [connection signal="meeting_finished" from="PcStuff/Screen" to="Telephone" method="enable"]
 [connection signal="meeting_finished" from="PcStuff/Screen" to="Dialogue" method="finish"]
