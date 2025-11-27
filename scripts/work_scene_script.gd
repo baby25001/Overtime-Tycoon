@@ -82,6 +82,9 @@ func confirm_tasks_ended(confirm : bool) -> void:
 		get_tree().change_scene_to_file("res://scenes/day_recap_scene.tscn")
 	print("all tasks finished", confirm)
 
+signal reset_phonecall
+signal reset_spreadsheet
+signal reset_meeting
 
 func _on_sanity_bar_ui_sanity_bar_zero() -> void:
 	# pass time for 1 hour, fill up the sanity bar by 50, any task that are currently running gets canceled
@@ -99,3 +102,7 @@ func _on_sanity_bar_ui_sanity_bar_zero() -> void:
 	sanity_bar.value = 50
 	
 	#cancel all tasks
+	reset_phonecall.emit()
+	reset_spreadsheet.emit()
+	reset_meeting.emit()
+	

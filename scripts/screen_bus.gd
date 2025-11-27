@@ -46,3 +46,8 @@ func call_meeting_started():
 
 func call_meeting_finished():
 	meeting_finished.emit()
+
+
+func _on_work_scene_reset_spreadsheet() -> void:
+	var spreadsheet = $"Spreadsheet opener/Spreadsheet"
+	spreadsheet.spreadsheet_completion = 0

@@ -166,7 +166,7 @@ offset_top = 229.0
 offset_right = 1047.0
 offset_bottom = 270.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = -1
+theme_override_constants/line_spacing = -11
 theme_override_fonts/font = ExtResource("14_rq3n8")
 theme_override_font_sizes/font_size = 20
 text = "This week's 
@@ -267,6 +267,7 @@ wait_time = 10.0
 autostart = true
 
 [connection signal="disable_all_tasks" from="." to="PcStuff/Screen" method="disable_computer"]
+[connection signal="reset_spreadsheet" from="." to="PcStuff/Screen" method="_on_work_scene_reset_spreadsheet"]
 [connection signal="decrease_sanity" from="PcStuff/Screen" to="ProgressLayer/sanityBarUI" method="decreaseSanity"]
 [connection signal="gain_money" from="PcStuff/Screen" to="ProgressLayer/moneyCounterUI" method="addMoney"]
 [connection signal="meeting_finished" from="PcStuff/Screen" to="Telephone" method="enable"]
