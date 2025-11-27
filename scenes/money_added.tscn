@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://tsf71jq48wku"]
+[gd_scene load_steps=3 format=3 uid="uid://tsf71jq48wku"]
 
 [ext_resource type="Script" uid="uid://bpqjpn15fuo6h" path="res://scripts/money_added_script.gd" id="1_f0ikc"]
+[ext_resource type="FontFile" uid="uid://gxkseqf68xa5" path="res://font/Ot6-Regular.ttf" id="1_lojsg"]
 
 [node name="Label" type="Label"]
 offset_top = 341.0
 offset_right = 81.0
 offset_bottom = 377.0
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("1_lojsg")
+theme_override_font_sizes/font_size = 30
 text = "+ $500"
 script = ExtResource("1_f0ikc")

@@ -7,11 +7,26 @@ extends CanvasLayer
 
 func _ready() -> void:
 	get_node("/root/DayRecap/PauseLayer").visible = true
+	
 	total_money.text += str(GM.curMoney)
 	money_gained.text += str(GM.money_gained_per_scene)
+	
 	if GM.tasks[0]["owned"]: tasks_done.text += "Calls done: " + str(GM.calls_done_per_scene) + "\n"
 	if GM.tasks[1]["owned"]: tasks_done.text += "Spreadsheets done: " + str(GM.spreadsheets_done_per_scene) + "\n"
 	if GM.tasks[2]["owned"]: tasks_done.text += "Meetings done: " + str(GM.meetings_done_per_scene) + "\n"
+	
+	if GM.sanity_hits_zero_counter != 0:
+		var amount_to_substract = 0
+		for i in range(1, GM.sanity_hits_zero_counter+1):
+			amount_to_substract += i
+		amount_to_substract *= 10
+		print(amount_to_substract)
+		var total_money_after_substract = max(GM.curMoney-amount_to_substract, 0) 
+		total_money.text += " [color=red]- " + str(amount_to_substract) + " = " + str(total_money_after_substract) + "[/color]"
+		GM.curMoney = total_money_after_substract
+		tasks_done.text += "[color=red]Penalty: " + str(GM.sanity_hits_zero_counter) + "[/color]"
+		
+	
 	
 			
 

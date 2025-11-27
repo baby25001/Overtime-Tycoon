@@ -3,6 +3,7 @@ extends TextureButton
 
 @export var task_name: String
 @export var task_description: String
+@export var task_to_use: String
 @onready var UIlayer = get_node("/root/UpgradeShop/UILayer")
 @onready var task_id = int(str(name))
 @onready var task_status = GM.tasks[int(task_id)]["index"]
@@ -20,8 +21,11 @@ func _ready() -> void:
 	else:	#max upgrade
 		item_status.texture = load("res://sprites1/upgrade_shop/upgrade when click.png")
 		disabled = true
+		
 func _pressed() -> void:
-	UIlayer.open_inspector_task(task_name, task_description, task_id, task_status)
+	task_status = GM.tasks[int(task_id)]["index"]
+	var final_task_desc = task_description + "\n\n" + task_to_use
+	UIlayer.open_inspector_task(task_name, final_task_desc, task_id, task_status)
 	item_status_clicked.visible = true
 	timer.start()
 	
