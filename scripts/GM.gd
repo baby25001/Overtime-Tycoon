@@ -72,7 +72,7 @@ var tasks = [
 		"icon" = "res://sprites1/upgrade_shop/excell.png",
 		"upgrade_value" = [9, 12, 16, 21],
 		"upgrade_cost" = [7, 13, 19, 25],
-		"owned" = true,
+		"owned" = false,
 		"index" = -1,
 		"unlock_cost" = 15
 	},
@@ -94,7 +94,7 @@ var tasks = [
 		"upgrade_cost" = [],
 		"owned" = false,
 		"index" = -1,
-		"unlock_cost" = 1000
+		"unlock_cost" = 1
 	}
 ]
 
