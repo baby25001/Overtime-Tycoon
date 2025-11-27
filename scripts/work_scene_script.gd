@@ -14,6 +14,7 @@ func _ready() -> void:
 	GM.spreadsheets_done_per_scene = 0
 	GM.meetings_done_per_scene = 0
 	GM.money_gained_per_scene = 0
+	GM.sanity_hits_zero_counter = 0
 	sanity_bar.mult_decrease = 1
 	sanity_bar.mult_increase = 1
 	calendar.text = str(GM.day_count+1)
@@ -90,6 +91,7 @@ signal reset_spreadsheet
 signal reset_meeting
 
 func _on_sanity_bar_ui_sanity_bar_zero() -> void:
+	GM.sanity_hits_zero_counter +=1
 	# pass time for 1 hour, fill up the sanity bar by 50, any task that are currently running gets canceled
 	
 	#pass time for 1 hour

@@ -1,14 +1,14 @@
+RichTextLabel
+Node2D
 TextureRect
 Label
 ColorRect
 Timer
 AudioStreamPlayer2D
-Node2D
 AudioListener2D
 Camera2D
 Control
 TextureButton
 Sprite2D
-RichTextLabel
 Button
 Panel

@@ -1,8 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://eq5dld084jvt"]
+[gd_scene load_steps=28 format=3 uid="uid://eq5dld084jvt"]
 
 [ext_resource type="Script" uid="uid://bpt1gf17heomq" path="res://scripts/upgrade_shop_scene_script.gd" id="1_f837f"]
 [ext_resource type="Texture2D" uid="uid://c84mf7j8xfsjh" path="res://sprites1/upgrade_shop/NEW shop tab new.png" id="2_bb24h"]
 [ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://sprites2/icon.svg" id="2_ku53v"]
+[ext_resource type="Texture2D" uid="uid://blup0oc2o11ip" path="res://sprites1/upgrade_shop/idle.png" id="3_lakpy"]
+[ext_resource type="Texture2D" uid="uid://cyxfg5h45l3nv" path="res://sprites1/upgrade_shop/when pressed.png" id="4_7tnew"]
 [ext_resource type="Script" uid="uid://c5lgy61jkkqvh" path="res://scripts/shop/decor_script.gd" id="5_1ry7c"]
 [ext_resource type="Script" uid="uid://0lj4qfwpiuyp" path="res://scripts/shop/task_script.gd" id="5_60wi4"]
 [ext_resource type="FontFile" uid="uid://gxkseqf68xa5" path="res://font/Ot6-Regular.ttf" id="5_ydsnx"]
@@ -21,8 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://1r35ss1h1kr" path="res://sprites1/upgrade_shop/buy default.png" id="11_fevue"]
 [ext_resource type="Texture2D" uid="uid://vpns23p02yc5" path="res://sprites1/upgrade_shop/decor/plant.PNG" id="12_ydsnx"]
 [ext_resource type="Texture2D" uid="uid://cvxjiwy1fwrjx" path="res://sprites1/upgrade_shop/decor/yourmom.PNG" id="13_owlww"]
-[ext_resource type="Texture2D" uid="uid://ci8vrxmm0xxtj" path="res://sprites1/work_scene/webcam put on top of monitor.png" id="14_xs0fv"]
 [ext_resource type="Texture2D" uid="uid://cutdb5llo6ijx" path="res://sprites1/upgrade_shop/buy now default.png" id="14_y6xq7"]
+[ext_resource type="Texture2D" uid="uid://dtfyos77py780" path="res://sprites1/upgrade_shop/webcam.png" id="15_5qur1"]
 [ext_resource type="Texture2D" uid="uid://dhterehxrqpwt" path="res://sprites1/upgrade_shop/buy now when click.png" id="15_pp4wy"]
 [ext_resource type="Texture2D" uid="uid://bwnonalhjn77c" path="res://sprites1/upgrade_shop/buy when click.png" id="18_ydsnx"]
 
@@ -50,11 +52,14 @@ expand_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="UILayer/shop_tab"]
 layout_mode = 0
-offset_left = 971.25
-offset_top = 567.0
-offset_right = 1099.25
-offset_bottom = 695.0
-texture_normal = ExtResource("2_ku53v")
+offset_left = 918.25
+offset_top = 628.0
+offset_right = 1138.2499
+offset_bottom = 694.0
+texture_normal = ExtResource("3_lakpy")
+texture_pressed = ExtResource("4_7tnew")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="money_icon" type="TextureRect" parent="UILayer/shop_tab"]
 layout_mode = 0
@@ -79,12 +84,13 @@ script = ExtResource("7_qag1b")
 
 [node name="tasks" type="GridContainer" parent="UILayer/shop_tab"]
 layout_mode = 0
-offset_left = 364.25
-offset_top = 208.0
-offset_right = 1038.25
-offset_bottom = 336.0
+offset_left = 361.25
+offset_top = 214.0
+offset_right = 1059.1666
+offset_bottom = 474.0
+scale = Vector2(0.96, 0.96)
 theme_override_constants/h_separation = 50
-columns = 3
+columns = 4
 
 [node name="slot0" type="Control" parent="UILayer/shop_tab/tasks"]
 custom_minimum_size = Vector2(128, 128)
@@ -185,13 +191,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 27.0
-offset_top = 15.0
-offset_right = -25.0
-offset_bottom = -37.0
+offset_left = 24.0
+offset_top = 11.0
+offset_right = -23.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("14_xs0fv")
+texture_normal = ExtResource("15_5qur1")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_60wi4")
@@ -219,6 +225,50 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="UILayer/shop_tab/tasks/slot2"]
+wait_time = 0.15
+
+[node name="slot3" type="Control" parent="UILayer/shop_tab/tasks"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="3" type="TextureButton" parent="UILayer/shop_tab/tasks/slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 11.0
+offset_right = -23.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_5qur1")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_60wi4")
+task_name = "996"
+task_description = "Unlock the ending and be a true corporate slave with working 996 (9am - 9pm, 6 days a week)"
+
+[node name="item_status" type="TextureRect" parent="UILayer/shop_tab/tasks/slot3"]
+layout_mode = 0
+offset_right = 129.46497
+offset_bottom = 129.46497
+mouse_filter = 2
+texture = ExtResource("11_fevue")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="item_status_clicked" type="TextureRect" parent="UILayer/shop_tab/tasks/slot3"]
+visible = false
+layout_mode = 0
+offset_right = 129.465
+offset_bottom = 129.465
+mouse_filter = 2
+texture = ExtResource("18_ydsnx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="UILayer/shop_tab/tasks/slot3"]
 wait_time = 0.15
 
 [node name="decor" type="GridContainer" parent="UILayer/shop_tab"]
@@ -534,6 +584,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="timeout" from="UILayer/shop_tab/tasks/slot0/Timer" to="UILayer/shop_tab/tasks/slot0/0" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/tasks/slot1/Timer" to="UILayer/shop_tab/tasks/slot1/1" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/tasks/slot2/Timer" to="UILayer/shop_tab/tasks/slot2/2" method="_on_timer_timeout"]
+[connection signal="timeout" from="UILayer/shop_tab/tasks/slot3/Timer" to="UILayer/shop_tab/tasks/slot3/3" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot000/000" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot001/001" method="_on_timer_timeout"]
 [connection signal="timeout" from="UILayer/shop_tab/decor/Timer" to="UILayer/shop_tab/decor/slot002/002" method="_on_timer_timeout"]

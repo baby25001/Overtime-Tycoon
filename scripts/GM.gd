@@ -12,6 +12,7 @@ var spreadsheets_done_per_scene = 0
 var meetings_done_per_scene = 0
 var money_gained_per_scene = 0
 var weekly_target = 50
+var sanity_hits_zero_counter = 0
 
 var add_money_telephone = 5
 var add_money_spreadsheet = 7
@@ -70,6 +71,16 @@ var tasks = [
 		"owned" = false,
 		"index" = -1,
 		"unlock_cost" = 25
+	},
+	{
+		"id" = "003",
+		"nama" = "996",
+		"icon" = "res://sprites1/work_scene/webcam put on top of monitor.png",
+		"upgrade_value" = [],
+		"upgrade_cost" = [],
+		"owned" = false,
+		"index" = -1,
+		"unlock_cost" = 1000
 	}
 ]
 
