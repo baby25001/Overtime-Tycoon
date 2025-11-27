@@ -45,7 +45,7 @@ var tasks = [
 	{
 		"id" = "000",
 		"nama" = "telephone",
-		"icon" = "res://sprites/icon.svg",
+		"icon" = "res://sprites1/work_scene/Phone neutral.png",
 		"upgrade_value" = [7, 9, 12, 15],
 		"upgrade_cost" = [5, 10, 15, 20],
 		"owned" = true,
@@ -54,10 +54,10 @@ var tasks = [
 	{
 		"id" = "001",
 		"nama" = "spreadsheet",
-		"icon" = "res://sprites/icon.svg",
+		"icon" = "res://sprites1/work_scene/screen/sp1.png",
 		"upgrade_value" = [9, 12, 16, 21],
 		"upgrade_cost" = [7, 13, 19, 25],
-		"owned" = true,
+		"owned" = false,
 		"index" = -1,
 		"unlock_cost" = 15
 	},
@@ -67,7 +67,7 @@ var tasks = [
 		"icon" = "res://sprites/icon.svg",
 		"upgrade_value" = [25, 30, 35, 40],
 		"upgrade_cost" = [18, 22, 26, 30],
-		"owned" = true,
+		"owned" = false,
 		"index" = -1,
 		"unlock_cost" = 25
 	}

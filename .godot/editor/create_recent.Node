@@ -1,6 +1,6 @@
 Label
-ColorRect
 TextureRect
+ColorRect
 Timer
 AudioStreamPlayer2D
 Node2D

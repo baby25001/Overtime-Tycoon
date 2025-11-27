@@ -20,7 +20,9 @@ func _ready() -> void:
 	else:	#max upgrade
 		item_status.texture = load("res://sprites1/upgrade_shop/upgrade when click.png")
 		disabled = true
+		
 func _pressed() -> void:
+	task_status = GM.tasks[int(task_id)]["index"]
 	UIlayer.open_inspector_task(task_name, task_description, task_id, task_status)
 	item_status_clicked.visible = true
 	timer.start()
