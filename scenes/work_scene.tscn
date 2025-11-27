@@ -267,8 +267,6 @@ stream = ExtResource("38_3gmet")
 [connection signal="force_fail" from="." to="PcStuff/Screen" method="call_force_fail"]
 [connection signal="force_fail" from="." to="Dialogue" method="force_fail"]
 [connection signal="decrease_sanity" from="PcStuff/Screen" to="ProgressLayer/sanityBarUI" method="decreaseSanity"]
-[connection signal="force_fail" from="PcStuff/Screen" to="PcStuff/Screen/Spreadsheet opener/Spreadsheet" method="force_fail"]
-[connection signal="force_fail" from="PcStuff/Screen" to="PcStuff/Screen/Meeting opener/Meeting" method="force_fail"]
 [connection signal="gain_money" from="PcStuff/Screen" to="ProgressLayer/moneyCounterUI" method="addMoney"]
 [connection signal="meeting_finished" from="PcStuff/Screen" to="Telephone" method="enable"]
 [connection signal="meeting_finished" from="PcStuff/Screen" to="Dialogue" method="finish"]

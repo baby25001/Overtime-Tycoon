@@ -10,6 +10,7 @@ var changing = false
 @onready var sanity_bar = get_node("ProgressLayer/sanityBarUI")
 
 func _ready() -> void:
+	GM.sanity_hits_zero_counter = 0
 	GM.calls_done_per_scene = 0
 	GM.spreadsheets_done_per_scene = 0
 	GM.meetings_done_per_scene = 0
@@ -95,6 +96,7 @@ func _on_sanity_bar_ui_sanity_bar_zero() -> void:
 	# pass time for 1 hour, fill up the sanity bar by 50, any task that are currently running gets canceled
 	var audio = get_node("sanity zeroed")
 	play_audio(audio)
+	GM.sanity_hits_zero_counter += 1
 	
 	#pass time for 1 hour
 	var clock_sprite = get_node("ProgressLayer/Clock")

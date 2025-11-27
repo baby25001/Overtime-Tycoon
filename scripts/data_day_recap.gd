@@ -22,6 +22,7 @@ func _ready() -> void:
 		amount_to_substract *= 10
 		print(amount_to_substract)
 		var total_money_after_substract = max(GM.curMoney-amount_to_substract, 0) 
+		print("total money after substract: " + str(total_money_after_substract))
 		total_money.text += " [color=red]- " + str(amount_to_substract) + " = " + str(total_money_after_substract) + "[/color]"
 		GM.curMoney = total_money_after_substract
 		tasks_done.text += "[color=red]Penalty: " + str(GM.sanity_hits_zero_counter) + "[/color]"
