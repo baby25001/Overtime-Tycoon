@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://eq5dld084jvt"]
+[gd_scene load_steps=31 format=3 uid="uid://eq5dld084jvt"]
 
 [ext_resource type="Script" uid="uid://bpt1gf17heomq" path="res://scripts/upgrade_shop_scene_script.gd" id="1_f837f"]
 [ext_resource type="Texture2D" uid="uid://c84mf7j8xfsjh" path="res://sprites1/upgrade_shop/NEW shop tab new.png" id="2_bb24h"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cutdb5llo6ijx" path="res://sprites1/upgrade_shop/buy now default.png" id="14_y6xq7"]
 [ext_resource type="Texture2D" uid="uid://dtfyos77py780" path="res://sprites1/upgrade_shop/webcam.png" id="15_5qur1"]
 [ext_resource type="Texture2D" uid="uid://dhterehxrqpwt" path="res://sprites1/upgrade_shop/buy now when click.png" id="15_pp4wy"]
+[ext_resource type="Texture2D" uid="uid://5cmr53hcjkhi" path="res://sprites1/upgrade_shop/996.png" id="16_3rw7c"]
 [ext_resource type="Texture2D" uid="uid://bwnonalhjn77c" path="res://sprites1/upgrade_shop/buy when click.png" id="18_ydsnx"]
 [ext_resource type="Texture2D" uid="uid://d1l8mxi4v681c" path="res://sprites1/upgrade_shop/decor/cactus decor no bg.PNG" id="20_5qur1"]
 [ext_resource type="Texture2D" uid="uid://bcyicbdbq736e" path="res://sprites1/upgrade_shop/decor/cat decor no bg.PNG" id="21_3rw7c"]
@@ -238,18 +239,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 11.0
-offset_right = -23.0
-offset_bottom = -36.0
+offset_left = 14.958405
+offset_top = 7.2916694
+offset_right = -13.749847
+offset_bottom = -28.583328
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("15_5qur1")
+texture_normal = ExtResource("16_3rw7c")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_60wi4")
 task_name = "996"
-task_description = "Unlock the ending and be a true corporate slave with working 996 (9am - 9pm, 6 days a week)"
+task_description = "Be free and become a true corporate slave with working 996 (9am - 9pm, 6 days a week)"
 
 [node name="item_status" type="TextureRect" parent="UILayer/shop_tab/tasks/slot3"]
 layout_mode = 0
@@ -275,9 +276,9 @@ wait_time = 0.15
 
 [node name="decor" type="GridContainer" parent="UILayer/shop_tab"]
 layout_mode = 0
-offset_left = 359.78503
+offset_left = 354.25
 offset_top = 495.0
-offset_right = 823.78503
+offset_right = 1014.25
 offset_bottom = 623.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -389,7 +390,7 @@ offset_bottom = -8.535156
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("20_5qur1")
-texture_disabled = ExtResource("13_owlww")
+texture_disabled = ExtResource("20_5qur1")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_1ry7c")
@@ -422,7 +423,7 @@ offset_bottom = -12.535156
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("21_3rw7c")
-texture_disabled = ExtResource("13_owlww")
+texture_disabled = ExtResource("21_3rw7c")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("5_1ry7c")
@@ -663,6 +664,8 @@ metadata/_edit_use_anchors_ = true
 [connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot000/000" method="_on_buy_button_give_to_decor_button"]
 [connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot001/001" method="_on_buy_button_give_to_decor_button"]
 [connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot002/002" method="_on_buy_button_give_to_decor_button"]
+[connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot003/003" method="_on_buy_button_give_to_decor_button"]
+[connection signal="give_to_decor_button" from="UILayer/inspector_panel/buy_button" to="UILayer/shop_tab/decor/slot004/004" method="_on_buy_button_give_to_decor_button"]
 [connection signal="pressed" from="UILayer/inspector_panel/buy_button" to="UILayer/inspector_panel/buy_button" method="_on_pressed"]
 [connection signal="is_max_upgrade" from="UILayer/inspector_panel_task/upgrade_button" to="UILayer" method="_on_upgrade_button_is_max_upgrade"]
 [connection signal="pressed" from="UILayer/inspector_panel_task/upgrade_button" to="UILayer/inspector_panel_task/upgrade_button" method="_on_pressed"]

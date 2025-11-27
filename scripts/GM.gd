@@ -4,7 +4,7 @@ extends Node
 # how to access: GM.{variable_name}
 
 var day = 1
-var curMoney = 0 #total money right now
+var curMoney = 200 #total money right now
 var curSanity = 100
 var maxSanity = 100
 var calls_done_per_scene = 0
@@ -89,7 +89,7 @@ var tasks = [
 	{
 		"id" = "003",
 		"nama" = "996",
-		"icon" = "res://sprites1/work_scene/webcam put on top of monitor.png",
+		"icon" = "res://sprites1/upgrade_shop/996.png",
 		"upgrade_value" = [],
 		"upgrade_cost" = [],
 		"owned" = false,
