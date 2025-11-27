@@ -48,6 +48,5 @@ func call_meeting_started():
 func call_meeting_finished():
 	meeting_finished.emit()
 
-
 func call_force_fail() -> void:
 	force_fail.emit()

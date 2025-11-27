@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://d2bcts6ujb2hd"]
+[gd_scene load_steps=45 format=3 uid="uid://d2bcts6ujb2hd"]
 
 [ext_resource type="Texture2D" uid="uid://wq18qmkxa7oi" path="res://sprites1/work_scene/PC with bg.PNG" id="1_s1t8g"]
 [ext_resource type="Texture2D" uid="uid://bqhabj0j6kghk" path="res://sprites2/icon.svg" id="1_sad84"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://we8lmb6n7wx7" path="res://SFX/click sounds/click 5.mp3" id="13_s5hlo"]
 [ext_resource type="AudioStream" uid="uid://cwet6cao37u48" path="res://SFX/click sounds/click 6.mp3" id="14_ljm6u"]
 [ext_resource type="FontFile" uid="uid://b3gn4x32bw7yy" path="res://font/Ot2-Regular.ttf" id="14_uhx08"]
+[ext_resource type="AudioStream" uid="uid://c4wvncdqha688" path="res://SFX/Telephone/empty.mp3" id="15_ou56q"]
 [ext_resource type="Texture2D" uid="uid://buldpfc4otyfp" path="res://sprites2/text bubble.png" id="15_v11sh"]
 [ext_resource type="AudioStream" uid="uid://cw3mu4vew6qev" path="res://SFX/fail sounds/Fail2.mp3" id="21_k1cwe"]
 
@@ -687,6 +688,11 @@ label_settings = SubResource("LabelSettings_v11sh")
 
 [node name="fail" type="AudioStreamPlayer2D" parent="Meeting opener/Meeting"]
 stream = ExtResource("21_k1cwe")
+
+[node name="bg_audio" type="AudioStreamPlayer2D" parent="Meeting opener/Meeting"]
+stream = ExtResource("15_ou56q")
+volume_db = -7.526
+pitch_scale = 0.32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Meeting opener"]
 root_node = NodePath("../Meeting")

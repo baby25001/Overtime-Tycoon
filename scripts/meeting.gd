@@ -30,6 +30,7 @@ var hold_timer_remain: float
 @onready var label = $Label
 @onready var rng = RandomNumberGenerator.new()
 @onready var audio_cue = get_node("Audio_cue")
+@onready var bg_audio = get_node("bg_audio")
 
 func _on_meeting_opener_closing_meeting() -> void:
 	$Button.disabled = true
@@ -52,7 +53,7 @@ func _on_meeting_opener_opening_meeting() -> void:
 		print(first_timer.time_left)
 
 func _process(_delta: float) -> void:
-	if state == AWAITHOLD:
+	if state == HOLDING:
 		progress.value = held_timer.time_left
 
 func start_meeting():
@@ -60,6 +61,7 @@ func start_meeting():
 	meeting_start.emit()
 	first_timer.start(rng.randi_range(5,9))
 	start_sanity_drain()
+	play_audio(bg_audio)
 	print("open")
 	state = INMEET
 	hold_timer_remain = 5
@@ -133,6 +135,7 @@ func finish_meeting(reward: float = 20) -> void:
 	if state == HASMEET or state == NOMEET:
 		return
 	
+	bg_audio.stop()
 	print("Meeting Finished")
 	finished.emit(reward, global_position)
 	stop_sanity_drain()

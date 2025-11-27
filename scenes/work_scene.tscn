@@ -343,6 +343,7 @@ stream = ExtResource("38_3gmet")
 [connection signal="force_fail" from="PcStuff/Screen" to="PcStuff/Screen/Meeting opener/Meeting" method="force_fail"]
 [connection signal="gain_money" from="PcStuff/Screen" to="ProgressLayer/moneyCounterUI" method="addMoney"]
 [connection signal="meeting_finished" from="PcStuff/Screen" to="Telephone" method="enable"]
+[connection signal="meeting_finished" from="PcStuff/Screen" to="Dialogue" method="finish"]
 [connection signal="meeting_started" from="PcStuff/Screen" to="Telephone" method="disable"]
 [connection signal="meeting_started" from="PcStuff/Screen" to="Dialogue" method="_on_meeting_dialogue"]
 [connection signal="money_notification" from="PcStuff/Screen" to="." method="play_added_money"]
